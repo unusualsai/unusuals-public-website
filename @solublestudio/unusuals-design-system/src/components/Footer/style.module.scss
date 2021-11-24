@@ -1,0 +1,76 @@
+@import '~base-imports';
+
+.footer {
+    background-color: $basic-900;
+    color: $basic-000;
+
+    a {
+        transition: all 150ms ease-in-out;
+    }
+}
+
+.logoRow {
+    align-items: center;
+}
+
+.footerMainLogoImg {
+    display: block;
+    max-width: 160px;
+    transform: translateX(-24px);
+
+    @include media-breakpoint-up(lg) {
+        margin-top: -24px;
+    }
+}
+
+//Lists
+.lists li + li {
+    margin-top: 12px;
+
+    @include media-breakpoint-up(lg) {
+        margin-top: 16px;
+    }
+}
+
+.privacityLinksList {
+    li {
+        @include media-breakpoint-up(lg) {
+            display: inline-block;
+            margin-right: 16px;
+        }
+    }
+
+    li + li {
+        margin-top: 3px;
+        @include media-breakpoint-up(lg) {
+            margin-top: 0px;
+        }
+    }
+}
+
+//Footer Legal
+.footerLine {
+    border-top: $border-width solid $basic-700;
+}
+
+//Social Links
+.socialIcons {
+    margin-left: ($footer-social-icon-area-size - $footer-social-icon-size) / -2;
+}
+
+.socialicon {
+    display: inline-block;
+    text-align: center;
+    width: $footer-social-icon-area-size;
+    height: $footer-social-icon-area-size;
+    padding-top: ($footer-social-icon-area-size - $footer-social-icon-size) / 2;
+
+    &img {
+        width: $footer-social-icon-size;
+        height: $footer-social-icon-size;
+    }
+
+    & + & {
+        margin-left: $footer-social-icon-spacing;
+    }
+}

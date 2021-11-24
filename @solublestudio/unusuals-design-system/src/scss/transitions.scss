@@ -1,0 +1,67 @@
+@import '~base-imports';
+
+[data-sal] {
+    transition-duration: 0.8s;
+    transition-duration: var(--sal-duration, 0.8s);
+    transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+[data-sal-delay='xs-none--lg-0'],
+[data-sal-delay='xs-none--lg-100'],
+[data-sal-delay='xs-none--lg-200'],
+[data-sal-delay='xs-none--lg-300'],
+[data-sal-delay='xs-none--lg-400'],
+[data-sal-delay='xs-none--lg-500'],
+[data-sal-delay='xs-none--lg-600'],
+[data-sal-delay='xs-none--lg-800'],
+[data-sal-delay='xs-none--lg-1000'] {
+    --sal-delay: 0;
+}
+
+@include media-breakpoint-up(lg) {
+    [data-sal-delay='xs-none--lg-100'] {
+        --sal-delay: 100ms;
+    }
+    [data-sal-delay='xs-none--lg-200'] {
+        --sal-delay: 200ms;
+    }
+    [data-sal-delay='xs-none--lg-300'] {
+        --sal-delay: 300ms;
+    }
+    [data-sal-delay='xs-none--lg-400'] {
+        --sal-delay: 400ms;
+    }
+    [data-sal-delay='xs-none--lg-500'] {
+        --sal-delay: 500ms;
+    }
+    [data-sal-delay='xs-none--lg-600'] {
+        --sal-delay: 600ms;
+    }
+    [data-sal-delay='xs-none--lg-700'] {
+        --sal-delay: 700ms;
+    }
+    [data-sal-delay='xs-none--lg-800'] {
+        --sal-delay: 800ms;
+    }
+    [data-sal-delay='xs-none--lg-1000'] {
+        --sal-delay: 1000ms;
+    }
+    [data-sal-delay='xs-none--lg-1200'] {
+        --sal-delay: 1200ms;
+    }
+    [data-sal-delay='xs-none--lg-1400'] {
+        --sal-delay: 1400ms;
+    }
+    [data-sal-delay='xs-none--lg-1600'] {
+        --sal-delay: 1600ms;
+    }
+    [data-sal-delay='xs-none--lg-1800'] {
+        --sal-delay: 1800ms;
+    }
+    [data-sal-delay='xs-none--lg-2100'] {
+        --sal-delay: 2100ms;
+    }
+    [data-sal-delay='xs-none--lg-2400'] {
+        --sal-delay: 2400ms;
+    }
+}

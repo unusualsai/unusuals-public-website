@@ -1,0 +1,58 @@
+@import '~base-imports';
+
+.line {
+    position: absolute;
+    background: #8d87f8;
+}
+
+.line--right,
+.line--left {
+    height: 1px;
+    width: 100%;
+    &.gradient {
+        background: linear-gradient(to right, rgba(#8d87f8, .2) 0%, #8d87f8 100%);
+    }
+    &.arrow {
+        &::after {
+            content: '';
+            position: absolute;
+            top: -3px;
+            right: 0;
+            width: 8px;
+            height: 8px;
+            border: solid #8d87f8;
+            border-width: 1px 0 0 1px;
+            transform: rotate(135deg);
+        }
+    }
+}
+
+.line--bottom,
+.line--top {
+    width: 1px;
+    height: 100%;
+    &.gradient {
+        background: linear-gradient(rgba(#8d87f8, .2) 0% 0%, #8d87f8 100%);
+    }
+    &.arrow {
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: -3px;
+            width: 8px;
+            height: 8px;
+            border: solid #8d87f8;
+            border-width: 1px 0 0 1px;
+            transform: rotate(-135deg);
+        }
+    }
+}
+
+.line--top {
+    transform: rotate(180deg);
+}
+
+.line--left {
+    transform: rotate(180deg);
+}

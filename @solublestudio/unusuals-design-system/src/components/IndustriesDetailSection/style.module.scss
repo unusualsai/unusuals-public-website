@@ -1,0 +1,37 @@
+@import '~base-imports';
+
+.section {
+    padding: 40px 0 12px 0;
+}
+
+.container {
+    transition: all 0.1s ease-in-out;
+    position: sticky;
+    top: 16px;
+    z-index: 1;
+
+    @include media-breakpoint-up(lg) {
+        top: $navbar-brand-height + 16px;
+    }
+
+    &[data-scrolldown=true]{
+        @include media-breakpoint-up(lg) {
+            transform: translateY(0px);
+        }
+    }
+}
+
+@include media-breakpoint-down(md) {
+    .container {
+        overflow: auto;
+        padding-bottom: 12px;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+}
+@include media-breakpoint-up(lg) {
+    .section {
+        padding: 48px 0 0 0;
+    }
+}

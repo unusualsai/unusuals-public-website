@@ -1,0 +1,50 @@
+@import '~base-imports';
+
+@keyframes video-animation {
+    0%{
+        opacity: 0.8;
+        transform: rotate(0);
+    }
+
+    33%{
+        opacity: 0.5;
+        transform: rotate(-5deg);
+
+    }
+
+    66%{
+        opacity: 0.8;
+        transform: rotate(5deg);
+
+    }
+
+    100%{
+        opacity: 0.8;
+        transform: rotate(0);
+
+    }
+}
+
+.wave{
+    width: $wave-size;
+    height: $wave-size;
+    animation-name: video-animation;
+    animation-iteration-count: infinite;
+    animation-duration: 10s;
+    filter: blur(30px);
+
+    @include media-breakpoint-up(lg) {
+        width: $wave-size-lg;
+        height: $wave-size-lg;
+    }
+
+    video{
+        width: $wave-size;
+        height: $wave-size;
+
+        @include media-breakpoint-up(lg) {
+            width: $wave-size-lg;
+            height: $wave-size-lg;
+        }
+    }
+}

@@ -1,0 +1,13 @@
+@import '~base-imports';
+
+.logos {
+    .logo {
+        vertical-align: middle;
+        margin: 24px auto;
+        max-height: 34px;
+
+        @include media-breakpoint-up(lg) {
+            margin: 0px 24px;
+        }
+    }
+}

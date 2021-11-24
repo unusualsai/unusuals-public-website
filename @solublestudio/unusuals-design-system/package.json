@@ -1,0 +1,58 @@
+{
+  "name": "@solublestudio/unusuals-design-system",
+  "version": "0.0.33",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "start-storybook -p 6007",
+    "build-storybook": "build-storybook"
+  },
+  "files": [
+    "index.js",
+    "cli.js",
+    "gatsby-config.js",
+    "components.json",
+    "next.config.js",
+    "src/**/*",
+    "docs/**/*",
+    "alias.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/solublestudio/unusuals-desing-system.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bin": {
+    "unusuals-design-system": "./cli.js"
+  },
+  "bugs": {
+    "url": "https://github.com/solublestudio/unusuals-desing-system/issues"
+  },
+  "homepage": "https://github.com/solublestudio/unusuals-desing-system#readme",
+  "dependencies": {
+    "@solublestudio/soluto-design-system": "1.0.6",
+    "gatsby": "^2.32.8",
+    "gatsby-source-filesystem": "^2.11.1",
+    "http-server": "0.12.3",
+    "prop-types": "^15.7.2",
+    "serve": "11.3.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.0",
+    "@babel/core": "^7.5.0",
+    "@babel/helper-compilation-targets": "^7.9.6",
+    "@babel/plugin-proposal-class-properties": "^7.5.0",
+    "@babel/preset-env": "^7.5.0",
+    "@babel/preset-react": "^7.0.0",
+    "@storybook/addon-actions": "^6.0.26",
+    "@storybook/addon-essentials": "^6.0.26",
+    "@storybook/addon-links": "^6.0.26",
+    "@storybook/addons": "^6.0.26",
+    "@storybook/react": "^6.0.26",
+    "@storybook/theming": "^6.0.26",
+    "babel-loader": "^8.1.0",
+    "storybook-design-token": "0.7.9"
+  }
+}

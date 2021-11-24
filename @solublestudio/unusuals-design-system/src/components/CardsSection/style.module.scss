@@ -1,0 +1,17 @@
+@import '~base-imports';
+
+.solutionsCardContainer {
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.solutionsCard {
+    border: 1px solid $basic-400;
+    border-radius: 4px;
+    min-height: 100%;
+}
+
+.solutionsCardBody {
+    padding: 0;
+}

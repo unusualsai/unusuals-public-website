@@ -1,0 +1,54 @@
+@import '~base-imports';
+
+.openPositionSection {
+    position: relative;
+}
+
+.image {
+    position: absolute !important;
+    left: 0;
+    top: 0;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    object-position: left;
+    z-index: -1;
+}
+
+.openPositionCard {
+    background-color: $basic-000;
+    border: 1px solid $basic-400;
+    border-radius: 4px;
+    min-height: 100%;
+}
+
+.openPositionBodyCard {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+@include media-breakpoint-down(md) {
+    .openPositionCardContainer {
+        &:not(:last-child) {
+            margin-bottom: 16px;
+        }
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .lessPaddingBottom {
+        padding-bottom: 64px;
+    }
+
+    .image {
+        object-position: center;
+    }
+}
+
+@include media-breakpoint-up(xxl) {
+    .lessPaddingBottom {
+        padding-bottom: 88px;
+    }
+}

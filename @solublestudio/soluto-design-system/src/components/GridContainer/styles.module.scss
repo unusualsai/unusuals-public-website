@@ -1,0 +1,60 @@
+@import '~base-imports';
+
+.wrapper {
+    --size-outside-container: #{$navbar-padding-x};
+    --size-col: 1fr;
+    --number-cols: 4;
+
+    width: 100%;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns:
+        var(--size-outside-container) repeat(
+            var(--number-cols),
+            var(--size-col)
+        )
+        var(--size-outside-container);
+
+    > * {
+        grid-column-start: 2;
+        grid-column-end: -2;
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .wrapper {
+        --size-outside-container: 1fr;
+        --number-cols: 12;
+        --size-col: #{(map-get($container-max-widths, 'lg')) / 12};
+    }
+
+    body[data-scrollbar] {
+        .wrapper {
+            --size-col: #{(map-get($container-max-widths-scrollbar, 'lg')) / 12};
+        }
+    }
+}
+
+@include media-breakpoint-up(xl) {
+    .wrapper {
+        --size-col: #{(map-get($container-max-widths, 'xl')) / 12};
+    }
+
+    body[data-scrollbar] {
+        .wrapper {
+            --size-col: #{(map-get($container-max-widths-scrollbar, 'xl')) / 12};
+        }
+    }
+}
+
+@include media-breakpoint-up(xxl) {
+    .wrapper {
+        --size-col: #{(map-get($container-max-widths, 'xxl')) / 12};
+    }
+
+    body[data-scrollbar] {
+        .wrapper {
+            --size-col: #{(map-get($container-max-widths-scrollbar, 'xxl')) / 12};
+        }
+    }
+}

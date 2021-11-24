@@ -1,0 +1,32 @@
+@function getColumnPercentage(
+    $column,
+    $breakpoint: xs,
+    $container-widths: $container-max-widths
+) {
+    $gutter: map-get(
+        (
+            xs: $grid-gutter-width,
+            sm: $grid-gutter-width,
+            md: $grid-gutter-width,
+            lg: $grid-gutter-width-lg,
+            xl: $grid-gutter-width-xl,
+            xxl: $grid-gutter-width-xxl,
+        ),
+        $breakpoint
+    );
+
+    @if $breakpoint == xs {
+        @return calc(
+            #{$navbar-padding-x} + (100% - #{$navbar-padding-x * 2}) * #{$column} /
+                #{$grid-columns}
+        );
+    }
+
+    @return calc(
+        50% +
+            (
+                #{map-get($container-widths, $breakpoint) / $grid-columns} * (#{$column} -
+                            #{$grid-columns / 2})
+            ) + #{$gutter / 2}
+    );
+}

@@ -1,0 +1,5 @@
+{
+    "SCSS_VARIABLES_INPUT_BTN": "scss/_variables.input-btn.scss",
+    "SCSS_VARIABLES_BUTTON": "components/Button/_variables.scss",
+    "SCSS_VARIABLES_RBC": "scss/variables.scss"
+}

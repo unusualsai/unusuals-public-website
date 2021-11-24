@@ -1,0 +1,54 @@
+@import '~base-imports';
+
+$animation-duration: 5s;
+
+.footerBannerContainer {
+    position: relative;
+    height: 54px;
+}
+
+a {
+    &.footerBanner {
+        &:hover {
+            cursor: pointer;
+            background-color: $basic-700 !important;
+            color: $primary-500 !important;
+        }
+    }
+}
+
+.marquee {
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    animation: marquee $animation-duration linear infinite;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translate(-10%, 0);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .footerBannerContainer {
+        height: 70px;
+    }
+
+    .footerBanner {
+        padding: 12px 0;
+    }
+}
+
+@include media-breakpoint-up(xxl) {
+    .footerBannerContainer {
+        height: 79px;
+    }
+
+    .footerBanner {
+        padding: 16px 0 12px;
+    }
+}

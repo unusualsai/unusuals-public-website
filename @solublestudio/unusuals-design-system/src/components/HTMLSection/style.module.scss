@@ -1,0 +1,33 @@
+@import '~base-imports';
+@import '~bootstrap/scss/tables';
+
+.text {
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: $basic-900;
+    }
+    h5,
+    h6 {
+        font-weight: 500;
+    }
+    p,
+    li {
+        color: $basic-800;
+    }
+    blockquote {
+        color: $secondary-blue-500;
+        text-align: center;
+    }
+
+    table {
+        border-color: $basic-300;
+        margin-bottom: 40px;
+    }
+
+    div[data-table-wrapper] {
+        @extend .table-responsive;
+    }
+}

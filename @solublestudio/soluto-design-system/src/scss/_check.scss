@@ -1,0 +1,63 @@
+@import "base-imports";
+
+$item-unset-colors: (
+	m: blue,
+	p: green,
+	col: red,
+	order: orange,
+	offset: purple
+);
+
+@mixin item_unset($text, $color: red) {   
+	position: relative;
+	min-height: 100px;
+
+	&::before {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		content: $text;
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		font-size: 28px;
+		font-family: Georgia, 'Times New Roman', Times, serif;
+		letter-spacing: 1px;
+		font-weight: 400;
+		box-sizing: border-box;
+		border: 4px dotted rgba($color, 0.8);
+		background-color: rgba($color, 0.1);
+		color: $color;
+		text-align: center;
+		z-index: 9999;
+		text-shadow: (1px 1px 0 #FFF), (-1px -1px 0 #FFF), (1px -1px 0 #FFF), (-1px 1px 0 #FFF); 
+	}
+}
+
+@if ($env == 'dev') {
+    @each $bp in map-keys($grid-breakpoints) {
+		$infix: if(breakpoint-min($bp, $grid-breakpoints) == null, "-", "-#{$bp}");
+
+        @each $abrev in ('m', 'p') {
+			$abrev-color: map-get($item-unset-colors, $abrev);
+
+            @each $pos in ('', 't', 'b', 'l', 'r') {
+				:global([class*=" #{$abrev}#{$pos}#{$infix}"]), 
+                :global([class^="#{$abrev}#{$pos}#{$infix}"]) { 
+                    @include item_unset('#{$abrev}#{$pos}#{$infix} is unset', $abrev-color);
+				}
+            }
+		}
+		
+		@each $abrev in ('col', 'order', 'offset') {
+			$abrev-color: map-get($item-unset-colors, $abrev);
+
+			:global([class*=" #{$abrev}#{$infix}"]), 
+			:global([class^="#{$abrev}#{$infix}"]) { 
+				@include item_unset('#{$abrev}#{$infix} is unset', $abrev-color);
+			}
+		}
+    }
+};

@@ -1,0 +1,34 @@
+@import '~base-imports';
+
+.section {
+    padding: 24px 0 48px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.wave {
+    position: absolute;
+    top: -30%;
+    right: -10%;
+    z-index: 0;
+}
+
+.image {
+    position: absolute;
+    top: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+@include media-breakpoint-up(lg) {
+    .section {
+        padding: 72px 0;
+    }
+}
+
+@include media-breakpoint-up(xxl) {
+    .section {
+        padding: 80px 0 104px 0;
+    }
+}

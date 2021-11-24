@@ -1,0 +1,48 @@
+@import '~base-imports';
+@import '~bootstrap/scss/nav';
+
+@if $nav-tabs-padding-x {
+    .nav-link {
+        padding-left: $nav-tabs-padding-x;
+        padding-right: $nav-tabs-padding-x;
+    }
+}
+
+@if $nav-tabs-padding-y {
+    .nav-link {
+        padding-top: $nav-tabs-padding-y;
+        padding-bottom: $nav-tabs-padding-y;
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    @if $nav-tabs-padding-x-lg {
+        .nav-link {
+            padding-left: $nav-tabs-padding-x-lg;
+            padding-right: $nav-tabs-padding-x-lg;
+        }
+    }
+
+    @if $nav-tabs-padding-y-lg {
+        .nav-link {
+            padding-top: $nav-tabs-padding-y-lg;
+            padding-bottom: $nav-tabs-padding-y-lg;
+        }
+    }
+}
+
+@include media-breakpoint-up(xxl) {
+    @if $nav-tabs-padding-x-xxl {
+        .nav-link {
+            padding-left: $nav-tabs-padding-x-xxl;
+            padding-right: $nav-tabs-padding-x-xxl;
+        }
+    }
+
+    @if $nav-tabs-padding-y-xxl {
+        .nav-link {
+            padding-top: $nav-tabs-padding-y-xxl;
+            padding-bottom: $nav-tabs-padding-y-xxl;
+        }
+    }
+}

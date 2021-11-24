@@ -1,0 +1,36 @@
+@import '~base-imports';
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: $font-weight-base;
+}
+
+@each $type, $values in $font-styles {
+    .#{$type} {
+        @include font-styles($type);
+    }
+}
+
+@if $debug-texts {
+    body[debug-texts] {
+        @each $map, $values in $font-styles {
+            .#{$map} {
+                position: relative;
+
+                &:after {
+                    color: red;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 999;
+                    background-color: yellow;
+                    content: '#{$map}';
+                }
+            }
+        }
+    }
+}

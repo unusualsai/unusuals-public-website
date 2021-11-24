@@ -1,0 +1,48 @@
+@import "base-imports";
+
+$abrevs: (
+    top: "t",
+    bottom: "b",
+    left: "l",
+    right: "r"
+);
+
+$typeAbrevs: (
+    margin: "m",
+    padding: "p"
+);
+
+@mixin spacing-utilities($list, $type) {
+    $typeAbrev: map-get($typeAbrevs, $type);
+    @each $position, $breakpointsList in $list {
+        @each $breakpoint, $values in $breakpointsList {
+            @include media-breakpoint-up($breakpoint) {
+                $abrevPosition: map-get($abrevs, $position);
+                @each $size in $values {
+                    @if $breakpoint == xs {
+                        .#{$typeAbrev}#{$abrevPosition}-#{$size} {
+                            @if ($position == 'all') {
+                                #{$type}: #{$size*$spacer};
+                            } @else {
+                                #{$type}-#{$position}: #{$size*$spacer};
+                            }
+                        }
+                    } @else {
+                        @if($position == 'all') {
+                            .#{$typeAbrev}#{$abrevPosition}-#{$breakpoint}-#{$size} {
+                                #{$type}: #{$size*$spacer};
+                            }
+                        } @else {
+                            .#{$typeAbrev}#{$abrevPosition}-#{$breakpoint}-#{$size} {
+                                #{$type}-#{$position}: #{$size*$spacer};
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include spacing-utilities($margins, "margin");
+@include spacing-utilities($paddings, "padding");

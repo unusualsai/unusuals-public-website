@@ -1,0 +1,47 @@
+@import '~base-imports';
+
+.summaryPostsSectionWithDescription {
+    padding-top: 48px;
+    position: relative;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        width: 100%;
+        background-color: $basic-100;
+    }
+}
+
+.summaryPostsSection {
+    overflow: hidden;
+}
+
+.postsContainer {
+    position: relative;
+    padding-top: 48px;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -9999px;
+        right: -9999px;
+        height: 1px;
+        background-color: $basic-100;
+    }
+}
+
+@include media-breakpoint-down(md) {
+    .blogCardContainer:not(:last-child) {
+        margin-bottom: 24px;
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .summaryPostsSectionWithDescription,
+    .postsContainer {
+        padding-top: 56px;
+    }
+}

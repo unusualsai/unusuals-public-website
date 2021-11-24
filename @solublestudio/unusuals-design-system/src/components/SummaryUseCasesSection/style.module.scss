@@ -1,0 +1,17 @@
+@import '~base-imports';
+
+.useCaseImage {
+    max-height: 210px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.summaryUseCasesTitle {
+    strong,
+    b,
+    i,
+    u {
+        color: theme-color('primary-500');
+        font-weight: 400;
+    }
+}

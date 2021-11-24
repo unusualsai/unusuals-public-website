@@ -1,0 +1,60 @@
+@import '~base-imports';
+
+@if $input-eraser-background and $input-eraser-size {
+    .input {
+        padding-right: $input-padding-x + $input-eraser-size;
+    }
+    
+    .eraser {
+        background-image: $input-eraser-background;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: $input-padding-x * 2 + $input-eraser-size;
+        height: $input-height;
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        position: absolute;
+        right: 0;
+        top: $label-margin-bottom + $font-size-base * $line-height-base;
+    }
+
+    .eraserSmall {
+        width: $input-padding-x-sm * 2 + $input-eraser-size;
+        height: $input-height-sm;
+        top: $label-margin-bottom + $font-size-base * $line-height-base;
+        width: $input-padding-x-sm * 2 + $input-eraser-size;
+    }
+
+    .inputSmall {
+        padding-right: $input-padding-x-sm + $input-eraser-size;
+    }
+    
+    .hiddenEraser {
+        opacity: 0;
+    }
+
+    @if $input-lg-padding-x {
+        @include media-breakpoint-up(lg) {
+            .input:not(.inputSmall) {
+                padding-right: $input-lg-padding-x + $input-eraser-size;
+            }
+
+            .eraser:not(.eraserSmall) {
+                width: $input-lg-padding-x * 2 + $input-eraser-size;
+            }
+        }
+    }
+
+    @if $input-lg-padding-y {
+        @include media-breakpoint-up(lg) {
+            .eraser:not(.eraserSmall) {
+                @if $input-lg-font-size and $input-lg-line-height {
+                    height: $input-lg-padding-y * 2 + $input-lg-font-size * $input-lg-line-height;
+                } @else {
+                    height: $input-lg-padding-y * 2 + $input-font-size * $input-line-height;
+                }
+            }
+        }
+    }
+}

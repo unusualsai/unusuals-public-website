@@ -1,0 +1,46 @@
+@import '~base-imports';
+
+.title {
+    text-align: left;
+    border: none;
+    background: transparent;
+    position: relative;
+    padding: 0;
+
+    @if $accordion-arrow-icon-bg {
+        padding-right: $accordion-arrow-icon-size * 2;
+
+        &:after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 50%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-image: $accordion-arrow-icon-bg;
+
+            @if $accordion-arrow-icon-size {
+                width: $accordion-arrow-icon-size;
+                height: $accordion-arrow-icon-size;
+                margin-top: -$accordion-arrow-icon-size / 2;
+            }
+        }
+    }
+
+    &[data-lock="true"] {
+        cursor: default;
+    }
+}
+
+.open {
+    .title {
+        &:after {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.collapse {
+    transition: height 200ms ease-in-out;
+}

@@ -1,0 +1,76 @@
+{
+  "name": "@solublestudio/soluto-design-system",
+  "version": "1.0.6",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "files": [
+    "index.js",
+    "cli.js",
+    "gatsby-node.js",
+    "components.json",
+    "next.config.js",
+    "webpack.config.js",
+    ".storybook/**/*",
+    "src/**/*",
+    "docs/**/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:solublestudio/soluto-design-system.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bin": {
+    "soluto-design-system": "./cli.js"
+  },
+  "homepage": "https://github.com/solublestudio/soluto-design-system",
+  "dependencies": {
+    "@svgr/webpack": "^5.5.0",
+    "@zeit/next-css": "1.0.1",
+    "@zeit/next-sass": "1.0.1",
+    "body-scroll-lock": "^2.6.3",
+    "bootstrap": "^4.5.0",
+    "css-loader": "^3.0.0",
+    "http-server": "0.12.3",
+    "next-transpile-modules": "4.1.0",
+    "node-sass": "^5.0.0",
+    "null-loader": "^4.0.1",
+    "postcss": "^7.0.17",
+    "postcss-flexbugs-fixes": "^4.1.0",
+    "postcss-loader": "^3.0.0",
+    "postcss-nested": "^4.1.2",
+    "postcss-scss": "^3.0.5",
+    "react": "16.14.0",
+    "react-collapse": "^5.0.1",
+    "sass-loader": "^10.1.1",
+    "smart-sections": "^0.0.6",
+    "style-loader": "^0.23.1",
+    "tiny-slider-react": "^0.4.0",
+    "url-loader": "^4.1.1"
+  },
+  "peerDependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.5.0",
+    "@babel/core": "^7.5.0",
+    "@babel/helper-compilation-targets": "^7.9.6",
+    "@babel/plugin-proposal-class-properties": "^7.5.0",
+    "@babel/preset-env": "^7.5.0",
+    "@babel/preset-react": "^7.0.0",
+    "@fullhuman/postcss-purgecss": "^2.0.6",
+    "@storybook/addon-actions": "^6.0.26",
+    "@storybook/addon-essentials": "^6.0.26",
+    "@storybook/addon-links": "^6.0.26",
+    "@storybook/addons": "^6.0.26",
+    "@storybook/react": "^6.0.26",
+    "@storybook/theming": "^6.0.26",
+    "autoprefixer": "^9.6.1",
+    "babel-loader": "^8.1.0",
+    "babel-watch": "^7.0.0",
+    "storybook-design-token": "0.7.9"
+  }
+}

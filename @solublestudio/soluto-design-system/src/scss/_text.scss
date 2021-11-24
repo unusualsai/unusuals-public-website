@@ -1,0 +1,55 @@
+//
+// Text
+//
+
+// Responsive alignment
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+        .text#{$infix}-left {
+            text-align: left;
+        }
+        .text#{$infix}-right {
+            text-align: right;
+        }
+        .text#{$infix}-center {
+            text-align: center;
+        }
+    }
+}
+
+// Transformation
+
+.text-lowercase {
+    text-transform: lowercase;
+}
+.text-uppercase {
+    text-transform: uppercase;
+}
+.text-capitalize {
+    text-transform: capitalize;
+}
+
+// Weight and italics
+
+@each $type, $value in $font-weights {
+    .font-weight-#{$type} {
+        font-weight: $value;
+    }
+}
+
+.font-italic {
+    font-style: italic;
+}
+
+// Contextual colors
+
+@each $color, $value in $theme-colors {
+    @include text-emphasis-variant('.text-#{$color}', $value, true);
+}
+
+.text-decoration-none {
+    text-decoration: none;
+}

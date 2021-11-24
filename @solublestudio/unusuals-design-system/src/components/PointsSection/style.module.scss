@@ -1,0 +1,62 @@
+@import '~base-imports';
+
+.pointsBox {
+    padding: 0;
+}
+
+.point {
+    position: relative;
+    &::after {
+        content: '';
+        position: absolute;
+        right: -9999px;
+        left: -9999px;
+        bottom: 0;
+        height: 1px;
+        min-width: 100%;
+        background-color: $basic-100;
+    }
+    padding: 40px 0;
+
+    &:first-child {
+        padding-top: 48px;
+    }
+}
+
+@include media-breakpoint-down(md) {
+    .pointsBox {
+        grid-column-end: 5;
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .pointsBox {
+        display: flex;
+    }
+
+    .point {
+        width: 33.3%;
+        &:not(:nth-child(3n)) {
+            border-right: 1px solid $basic-100;
+        }
+        padding: 80px 0;
+        padding-left: 24px;
+        padding-right: 32px;
+
+        &:first-child {
+            padding-top: 80px;
+            padding-left: 0;
+        }
+    }
+}
+
+@include media-breakpoint-up(xxl) {
+    .point {
+        padding: 104px 0;
+        padding-left: 32px;
+        padding-right: 64px;
+        &:first-child {
+            padding-top: 104px;
+        }
+    }
+}

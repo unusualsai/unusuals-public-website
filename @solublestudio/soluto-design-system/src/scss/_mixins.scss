@@ -1,0 +1,268 @@
+// Mixins
+
+// Button Mixins
+
+@mixin btn-type($type) {
+    $values: map-get($button-custom, $type);
+
+    $background: map-get($values, 'background');
+    $border: map-get($values, 'border');
+    $color: map-get($values, 'color');
+    $color-svg: true;
+    @if map-has-key($values, 'color-svg') {
+        $color-svg: map-get($values, 'color-svg');
+    }
+    $box-shadow: map-get($values, 'box-shadow');
+    $hover-background: map-get($values, 'hover-background');
+    $hover-border: map-get($values, 'hover-border');
+    $hover-color: map-get($values, 'hover-color');
+    $hover-box-shadow: map-get($values, 'hover-box-shadow');
+    $active-background: map-get($values, 'active-background');
+    $active-border: map-get($values, 'active-border');
+    $active-color: map-get($values, 'active-color');
+    $active-box-shadow: map-get($values, 'active-box-shadow');
+    $disabled-background: map-get($values, 'disabled-background');
+    $disabled-border: map-get($values, 'disabled-border');
+    $disabled-color: map-get($values, 'disabled-color');
+    $sizes: map-get($values, 'sizes');
+
+    @include button-colors(
+        $background,
+        $border,
+        $color,
+        $color-svg,
+        $box-shadow,
+        $hover-background,
+        $hover-border,
+        $hover-color,
+        $hover-box-shadow,
+        $active-background,
+        $active-border,
+        $active-color,
+        $active-box-shadow,
+        $disabled-background,
+        $disabled-border,
+        $disabled-color
+    );
+
+    @if $sizes {
+        @include button-sizes($sizes);
+    }
+
+    @include media-breakpoint-up(lg) {
+        cursor: pointer;
+    }
+}
+
+@mixin button-colors(
+    $background,
+    $border,
+    $color,
+    $color-svg: true,
+    $box-shadow: box-shadow($btn-box-shadow),
+    $hover-background: darken($background, 7.5%),
+    $hover-border: darken($border, 10%),
+    $hover-color: color-contrast($hover-background),
+    $hover-box-shadow: box-shadow($btn-box-shadow),
+    $active-background: darken($background, 10%),
+    $active-border: darken($border, 12.5%),
+    $active-color: color-contrast($active-background),
+    $active-box-shadow: box-shadow($btn-box-shadow),
+    $disabled-background: $background,
+    $disabled-border: $border,
+    $disabled-color: color-contrast($disabled-background)
+) {
+    color: $color;
+    @include gradient-bg($background);
+    border-color: $border;
+    @include box-shadow($box-shadow);
+
+    @if $color-svg {
+        svg path {
+            transition: fill 0.15s ease-in-out;
+            fill: $color !important;
+        }
+    }
+
+    @include hover() {
+        color: $hover-color;
+        @include gradient-bg($hover-background);
+        border-color: $hover-border;
+        @include box-shadow($hover-box-shadow);
+        @if $color-svg {
+            svg path {
+                fill: $hover-color !important;
+            }
+        }
+    }
+
+    &:focus,
+    &.focus {
+        color: $hover-color;
+        @include gradient-bg($hover-background);
+        border-color: $hover-border;
+        box-shadow: $hover-box-shadow;
+
+        @if $color-svg {
+            svg path {
+                fill: $hover-color !important;
+            }
+        }
+    }
+
+    &:not(:disabled):not(.disabled):active,
+    &:not(:disabled):not(.disabled).active,
+    .show > &.dropdown-toggle {
+        color: $active-color;
+        background-color: $active-background;
+        border-color: $active-border;
+
+        &,
+        &:focus {
+            @include box-shadow($active-box-shadow);
+        }
+
+        @if $color-svg {
+            svg path {
+                fill: $active-color !important;
+            }
+        }
+    }
+
+    &.disabled,
+    &:disabled {
+        color: $disabled-color;
+        background-color: $disabled-background;
+        border-color: $disabled-border;
+
+        @if $color-svg {
+            svg path {
+                fill: $disabled-color !important;
+            }
+        }
+    }
+}
+
+@mixin button-sizes($values) {
+    @each $breakpoint, $sizes in $values {
+        $this-breakpoint: if($breakpoint == 'null', 'xs', $breakpoint);
+
+        @include media-breakpoint-up($this-breakpoint) {
+            $padding-x: map-get($sizes, 'padding-x');
+            @if $padding-x {
+                padding-left: $padding-x;
+                padding-right: $padding-x;
+            }
+            $padding-y: map-get($sizes, 'padding-y');
+            @if $padding-y {
+                padding-top: $padding-y;
+                padding-bottom: $padding-y;
+            }
+            $border-width: map-get($sizes, 'border-width');
+            @if $border-width {
+                border-width: $border-width;
+            }
+            $font-size: map-get($sizes, 'font-size');
+            @if $font-size {
+                font-size: $font-size;
+            }
+            $line-height: map-get($sizes, 'line-height');
+            @if $line-height {
+                line-height: $line-height;
+            }
+            $font-weight: map-get($sizes, 'font-weight');
+            @if $font-weight {
+                font-weight: $font-weight;
+            }
+            $font-family: map-get($sizes, 'font-family');
+            @if $font-family {
+                font-family: $font-family;
+            }
+            $text-transform: map-get($sizes, 'text-transform');
+            @if $text-transform {
+                text-transform: $text-transform;
+            }
+            $letter-spacing: map-get($sizes, 'letter-spacing');
+            @if $letter-spacing {
+                letter-spacing: $letter-spacing;
+            }
+            $border-radius: map-get($sizes, 'border-radius');
+            @if $border-radius {
+                border-radius: $border-radius;
+            }
+            $margin-left-svg: map-get($sizes, 'margin-left-svg');
+            @if $margin-left-svg {
+                svg {
+                    margin-left: $margin-left-svg;
+                }
+            }
+            $margin-right-svg: map-get($sizes, 'margin-right-svg');
+            @if $margin-right-svg {
+                svg {
+                    margin-right: $margin-right-svg;
+                }
+            }
+            $hover-transform-svg: map-get($sizes, 'hover-transform-svg');
+            @if $hover-transform-svg {
+                &:hover {
+                    svg {
+                        transform: $hover-transform-svg;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Input Mixins
+
+@mixin placeholder {
+    &::-webkit-input-placeholder {
+        @content;
+    }
+    &:-moz-placeholder {
+        @content;
+    }
+    &::-moz-placeholder {
+        @content;
+    }
+    &:-ms-input-placeholder {
+        @content;
+    }
+    &::placeholder {
+        @content;
+    }
+}
+
+// Fonts mixins
+
+@mixin font-styles($type) {
+    $values: map-get($font-styles, $type);
+
+    @each $breakpoint, $styles in $values {
+        $this-breakpoint: if($breakpoint == 'null', 'xs', $breakpoint);
+
+        @include media-breakpoint-up($this-breakpoint) {
+            $font-size: map-get($styles, 'font-size');
+            @if $font-size {
+                font-size: $font-size;
+            }
+            $line-height: map-get($styles, 'line-height');
+            @if $line-height {
+                line-height: $line-height;
+            }
+            $letter-spacing: map-get($styles, 'letter-spacing');
+            @if $letter-spacing {
+                letter-spacing: $letter-spacing;
+            }
+            $font-weight: map-get($styles, 'font-weight');
+            @if $font-weight {
+                font-weight: $font-weight;
+            }
+            $font-family: map-get($styles, 'font-family');
+            @if $font-family {
+                font-family: $font-family;
+            }
+        }
+    }
+}

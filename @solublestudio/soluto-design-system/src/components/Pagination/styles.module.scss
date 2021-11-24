@@ -1,0 +1,61 @@
+@import '~base-imports';
+@import '~bootstrap/scss/pagination';
+
+.pagination {
+    margin-bottom: 0;
+}
+
+@if $pagination-font-name {
+    .page-link {
+        @include font-styles($pagination-font-name);
+    }
+}
+
+@if $pagination-separation {
+    .page-item + .page-item {
+        margin-left: $pagination-separation;
+    }
+
+    .page-item {
+        &,
+        &:first-child,
+        &:last-child {
+            .page-link {
+                border-radius: $pagination-border-radius;
+            }
+        }
+    }
+}
+
+@if $pagination-border-radius {
+    .page-link {
+        border-radius: $pagination-border-radius;
+    }
+}
+
+.active {
+    .page-link {
+        cursor: default;
+    }
+}
+
+.page-link {
+    position: relative;
+    svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform-origin: 0 0;
+        transform: translate(-50%, -50%);
+
+        ~ span {
+            opacity: 0;
+        }
+    }
+}
+
+.page-link-next {
+    svg {
+        transform: rotate(180deg) translate(-50%, -50%);
+    }
+}

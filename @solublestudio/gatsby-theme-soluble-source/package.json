@@ -1,0 +1,57 @@
+{
+  "name": "@solublestudio/gatsby-theme-soluble-source",
+  "version": "1.4.7",
+  "description": "Gatsby theme soluble source",
+  "author": "",
+  "main": "index.js",
+  "license": "ISC",
+  "scripts": {
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "postversion": "git push --follow-tags && npm publish"
+  },
+  "files": [
+    "index.js",
+    "gatsby-browser.js",
+    "gatsby-config.js",
+    "gatsby-node.js",
+    "gatsby-ssr.js",
+    "context/**/*",
+    "src/**/*",
+    "utils/**/*",
+    "data/**/*"
+  ],
+  "peerDependencies": {
+    "gatsby": "^2",
+    "react": "16.14.0",
+    "react-dom": "16.14.0"
+  },
+  "dependencies": {
+    "@mdx-js/mdx": "^1.6.1",
+    "@mdx-js/react": "^1.6.1",
+    "gatsby-plugin-gatsby-cloud": "1.0.1",
+    "gatsby-plugin-mdx": "^1.2.7",
+    "gatsby-plugin-netlify": "^2.11.1",
+    "gatsby-plugin-react-helmet": "^3.3.1",
+    "gatsby-plugin-robots-txt": "^1.5.0",
+    "gatsby-plugin-sharp": "^2.11.0",
+    "gatsby-remark-copy-linked-files": "^2.3.2",
+    "gatsby-remark-images": "^3.8.0",
+    "gatsby-remark-relative-images": "^2.0.2",
+    "gatsby-remark-video": "^1.2.5",
+    "gatsby-source-airtable": "^2.1.1",
+    "gatsby-source-datocms": "2.6.6",
+    "gatsby-source-filesystem": "^2.11.0",
+    "gatsby-source-wordpress": "^4.0.1",
+    "gatsby-transformer-remark": "^2.13.0",
+    "gatsby-transformer-sharp": "^2.9.0",
+    "html-entities": "^1.3.1",
+    "marked": "^1.0.0",
+    "node-fetch": "^2.6.1",
+    "react-datocms": "^1.5.5",
+    "react-helmet": "^6.0.0",
+    "slugify": "^1.4.7"
+  },
+  "devDependencies": {
+    "prettier": "^2.0.5"
+  }
+}

@@ -1,0 +1,49 @@
+@import '~base-imports';
+
+.ctaBannerSection {
+    overflow: hidden;
+    position: relative;
+
+    @include media-breakpoint-up(lg) {
+        padding: 56px 0;
+    }
+
+    @include media-breakpoint-up(xxl) {
+        padding: 80px 0;
+    }
+}
+
+.ctaContent {
+    position: relative;
+    z-index: 1;
+}
+
+.ctaBackground {
+    position: absolute;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    width: $wave-size;
+    height: $wave-size;
+    margin-top: $wave-size / -2;
+    margin-left: $wave-size / -4;
+
+    @include media-breakpoint-up(lg) {
+        width: $wave-size-lg;
+        height: $wave-size-lg;
+        margin-top: $wave-size-lg / -2;
+        margin-left: $wave-size-lg / -10;
+    }
+
+    .ctaImage {
+        width: $wave-size-lg;
+        position: absolute;
+        top: 50%;
+        margin-top: $wave-size-lg / -8;
+        right: 0%;
+    }
+}
+
+.description {
+    opacity: 0.85;
+}

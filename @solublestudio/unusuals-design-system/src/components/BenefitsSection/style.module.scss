@@ -1,0 +1,55 @@
+@import '~base-imports';
+
+.benefitsContainer {
+    border-top: 1px solid $basic-100;
+    border-bottom: 1px solid $basic-100;
+}
+
+.benefit {
+    position: relative;
+    &::after {
+        content: '';
+        position: absolute;
+        right: -9999px;
+        left: -9999px;
+        bottom: 0;
+        height: 1px;
+        min-width: 100%;
+        background-color: $basic-100;
+    }
+}
+
+.benefitIcon {
+    height: 48px;
+    width: auto;
+}
+
+@include media-breakpoint-down(md) {
+    .benefitsBox {
+        grid-column-end: 5;
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .benefitsBox {
+        display: flex;
+    }
+
+    .benefit {
+        width: 33.3%;
+        &:not(:first-child) {
+            padding-left: 24px;
+        }
+        &:not(:nth-child(3n)) {
+            border-right: 1px solid $basic-100;
+        }
+    }
+}
+
+@include media-breakpoint-up(xxl) {
+    .benefit {
+        &:not(:first-child) {
+            padding-left: 36px;
+        }
+    }
+}

@@ -1,0 +1,17 @@
+@import '~base-imports';
+
+@each $breakpoint, $size in $section-paddings {
+    @if $breakpoint {
+        @include media-breakpoint-up($breakpoint) {
+            .section {
+                padding-top: $size;
+                padding-bottom: $size;
+            }
+        }
+    } @else {
+        .section {
+            padding-top: $size;
+            padding-bottom: $size;
+        }
+    }
+}

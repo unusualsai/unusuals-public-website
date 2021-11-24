@@ -1,0 +1,66 @@
+@import '~base-imports';
+
+.wrapper {
+    border: none;
+    flex-wrap: nowrap;
+}
+
+.tab {
+    &:not(:last-child) {
+        margin-right: 8px;
+    }
+    .link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $basic-000;
+        padding: 8px 16px;
+        font-family: $font-family-neue-machina;
+        background-color: $basic-000;
+        border: 1px solid $secondary-blue-500;
+        border-radius: 4px;
+        color: $basic-900;
+        text-align: center;
+        height: 46px;
+        min-width: 120px;
+        max-width: 180px;
+        width: max-content;
+
+        &:hover {
+            background-color: $basic-100;
+            color: $basic-000;
+        }
+    }
+
+    .activeItem {
+        &:hover {
+            background-color: $secondary-blue-400;
+            cursor: auto;
+        }
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .tab {
+        &:not(:last-child) {
+            margin-right: 16px;
+        }
+
+        .link {
+            width: auto;
+        }
+    }
+}
+
+@include media-breakpoint-up(xxl) {
+    .tab {
+        &:not(:last-child) {
+            margin-right: 32px;
+        }
+
+        .link {
+            min-width: 160px;
+            max-width: 230px;
+        }
+    }
+}

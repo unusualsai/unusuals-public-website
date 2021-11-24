@@ -1,0 +1,266 @@
+/**
+ * @tokens 00 Config I — @solublestudio/soluto-design-system
+ */
+
+$env: 'prod' !default;
+
+$debug-texts: false !default;
+
+$spacer: 0.5rem;
+
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1275px,
+    xxl: 1435px,
+) !default;
+
+$grid-cols: (
+    xs: (
+        12,
+    ),
+) !default;
+
+$grid-orders: () !default;
+
+$grid-offsets: () !default;
+
+$grid-row-columns: 0;
+
+$margins: (
+    all: (
+        xs: (
+            1,
+            2,
+            3,
+        ),
+    ),
+) !default;
+
+$paddings: (
+    all: (
+        xs: (
+            1,
+            2,
+            3,
+        ),
+    ),
+) !default;
+
+$section-paddings: () !default;
+
+$font-weights: () !default;
+
+/**
+ * @tokens 00 Config II — @solublestudio/soluto-design-system
+ */
+$sizes: ();
+$sizes: map-merge(
+    (
+        100: 100%,
+        auto: auto,
+    ),
+    $sizes
+) !default;
+
+$displays: none, inline-block, block, flex;
+$positions: relative, absolute, fixed;
+
+$font-styles: () !default;
+
+$html-components-fonts: () !default;
+$html-components-margins: () !default;
+$html-link-color: null !default;
+$html-link-text-decoration: underline !default;
+$html-hover-link-color: null !default;
+$html-hover-link-text-decoration: none !default;
+$html-padding-list-points: null !default;
+
+$html-table-style: null !default;
+$html-table-dark: null !default;
+$html-table-small: null !default;
+
+/**
+ * @tokens 20 Navbar — @solublestudio/soluto-design-system
+ */
+
+$navbar-nav-link-padding-y: $nav-link-padding-y !default;
+$navbar-nav-link-padding-x-xl: null !default;
+$navbar-nav-link-padding-x-xxl: null !default;
+$navbar-nav-link-padding-y-xxl: $navbar-nav-link-padding-y !default;
+$navbar-nav-link-arrow-space: null !default;
+
+$navbar-padding-y-lg: $navbar-padding-y !default;
+$navbar-padding-y-xxl: null !default;
+$navbar-padding-x-lg: $navbar-padding-x !default;
+$navbar-padding-x-xl: $navbar-padding-x-lg !default;
+$navbar-padding-x-xxl: $navbar-padding-x-xl !default;
+
+$navbar-nav-font-size: $font-size-base !default;
+$navbar-nav-line-height: $line-height-base !default;
+$navbar-nav-letter-spacing: null !default;
+$navbar-nav-font-size-lg: $navbar-nav-font-size !default;
+$navbar-nav-line-height-lg: $navbar-nav-line-height !default;
+$navbar-nav-letter-spacing-lg: null !default;
+$navbar-nav-letter-spacing-xl: null !default;
+$navbar-nav-letter-spacing-xxl: null !default;
+$navbar-nav-text-transform: null !default;
+$navbar-nav-text-transform-lg: null !default;
+$navbar-nav-font-weight: null !default;
+$navbar-nav-font-weight-lg: null !default;
+$navbar-hover-font-weight: null !default;
+$navbar-active-font-weight: null !default;
+
+$navbar-brand-height-lg: null !default;
+$navbar-brand-height-xxl: null !default;
+$nav-link-height: $navbar-nav-font-size-lg * $navbar-nav-line-height-lg +
+    $navbar-nav-link-padding-y * 2 !default;
+$nav-link-height-xxl: $navbar-nav-font-size-lg * $navbar-nav-line-height-lg +
+    $navbar-nav-link-padding-y-xxl * 2 !default;
+$navbar-height: $navbar-brand-height + $navbar-brand-padding-y * 2 +
+    $navbar-padding-y * 2 !default;
+$navbar-height-lg: $navbar-brand-height + $navbar-brand-padding-y * 2 +
+    $navbar-padding-y-lg * 2 !default;
+$navbar-height-xxl: null !default; // TODO
+
+$navbar-scroll-background: null !default;
+$navbar-scroll-color: null !default;
+$navbar-scroll-active-color: null !default;
+$navbar-scroll-brand-shown-scheme: null !default;
+$navbar-scroll-box-shadow: null !default;
+
+$navbar-show-height: calc(100 * var(--vh) - #{$navbar-height}) !default;
+$navbar-show-height-border-top: null !default;
+$navbar-show-background-image: null !default;
+$navbar-show-background-color: null !default;
+$navbar-show-nav-margin-top: null !default;
+$navbar-show-timing-function: null !default;
+
+$navbar-nav-font-family: null !default;
+
+$navbar-light-background: null !default;
+$navbar-light-color-lg: null !default;
+$navbar-light-hover-color-lg: null !default;
+$navbar-light-active-color-lg: null !default;
+$navbar-light-dropdown-open-color: null !default;
+$navbar-dark-background: null !default;
+$navbar-dark-color-lg: null !default;
+$navbar-dark-hover-color-lg: null !default;
+$navbar-dark-active-color-lg: null !default;
+
+$navbar-toggler-border-width: null !default;
+$navbar-toggler-icon-size: null !default;
+$navbar-toggler-close-icon-bg: $navbar-light-toggler-icon-bg !default;
+
+$navbar-transparent-bg-color: $white !default;
+$navbar-transparent-color: $white !default;
+$navbar-transparent-hover-color: $white !default;
+$navbar-transparent-active-color: $white !default;
+$navbar-transparent-toggler-icon-bg: $navbar-light-toggler-icon-bg !default;
+
+$dropdown-nav-transparent-link-color: null !default;
+$dropdown-perspective-anim: null !default;
+$dropdown-arrow-icon-bg: null !default;
+$dropdown-arrow-icon-bg-active: null !default;
+$dropdown-arrow-icon-size: null !default;
+$dropdown-arrow-icon-size-lg: null !default;
+$dropdown-position: null !default;
+$dropdown-box-shadow: null !default;
+$dropdown-overlay-bg: null !default;
+$dropdown-font-size: null !default;
+
+$breadcrumb-divider-background: null !default;
+
+// Tabs variables
+
+$nav-tabs-padding-x: null !default;
+$nav-tabs-padding-y: null !default;
+$nav-tabs-padding-x-lg: null !default;
+$nav-tabs-padding-y-lg: null !default;
+$nav-tabs-padding-x-xxl: null !default;
+$nav-tabs-padding-y-xxl: null !default;
+
+// Button variables
+$dropdown-padding-y-lg: null !default;
+$dropdown-bg-lg: null !default;
+$dropdown-item-padding-y-lg: null !default;
+$dropdown-item-padding-x-lg: null !default;
+
+// Card variables
+
+$card-box-shadow: null !default;
+$card-spacer-y-lg: null !default;
+$card-spacer-x-lg: null !default;
+$card-spacer-y-xxl: null !default;
+$card-spacer-x-xxl: null !default;
+
+/**
+ * @tokens 40 Forms — @solublestudio/soluto-design-system
+ */
+$input-top-padding-fix: null !default;
+$input-lg-padding-y: null !default;
+$input-lg-padding-x: null !default;
+$input-lg-font-size: null !default;
+$input-lg-line-height: $input-line-height !default;
+$input-placeholder-font-style: null !default;
+
+$input-eraser-background: null !default;
+$input-eraser-size: null !default;
+
+$custom-select-lg-padding-y: null !default;
+$custom-select-lg-padding-x: null !default;
+$custom-select-lg-line-height: null !default;
+
+$form-group-lg-margin-bottom: null !default;
+
+/**
+ * @tokens 80 Misc — @solublestudio/soluto-design-system
+ */
+$paragraph-margin-bottom: 0;
+$headings-margin-bottom: 0;
+
+$alert-padding-x: 1rem !default;
+
+$accordion-arrow-icon-bg: null !default;
+$accordion-arrow-icon-size: 16px !default;
+
+$tooltip-margin: 0;
+$tooltip-shadow: null !default;
+$tooltip-max-width-lg: null !default;
+$tooltip-padding-y-lg: null !default;
+$tooltip-padding-x-lg: null !default;
+
+$pagination-font-name: null !default;
+$pagination-separation: null !default;
+$pagination-border-radius: null !default;
+
+/**
+ * @tokens 10 Grid — @solublestudio/soluto-design-system
+ */
+$grid-gutter-width-md: $grid-gutter-width !default;
+$grid-gutter-width-lg: $grid-gutter-width !default;
+$grid-gutter-width-xl: $grid-gutter-width !default;
+$grid-gutter-width-xxl: $grid-gutter-width !default;
+
+$container-max-widths: (
+    sm: map-get($grid-breakpoints, 'sm') - $navbar-padding-x * 2 +
+        $grid-gutter-width,
+    md: map-get($grid-breakpoints, 'md') - $navbar-padding-x * 2 +
+        $grid-gutter-width,
+    lg: map-get($grid-breakpoints, 'lg') - $navbar-padding-x-lg * 2 +
+        $grid-gutter-width,
+    xl: map-get($grid-breakpoints, 'xl') - $navbar-padding-x-xl * 2 +
+        $grid-gutter-width-xl,
+    xxl: map-get($grid-breakpoints, 'xxl') - $navbar-padding-x-xxl * 2 +
+        $grid-gutter-width-xxl,
+);
+
+$container-max-widths-scrollbar: (
+    sm: map-get($container-max-widths, 'sm') - 15px,
+    md: map-get($container-max-widths, 'md') - 15px,
+    lg: map-get($container-max-widths, 'lg') - 15px,
+    xl: map-get($container-max-widths, 'xl') - 15px,
+    xxl: map-get($container-max-widths, 'xxl') - 15px,
+);

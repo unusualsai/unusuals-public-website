@@ -1,0 +1,234 @@
+@import '~base-imports';
+
+@mixin checkbox-cookiehub(
+    $bg-label,
+    $border-label,
+    $bg-circle,
+    $border-circle
+) {
+    + label {
+        background: $bg-label !important;
+        border-color: $border-label !important;
+        &:before {
+            background-color: $bg-circle !important;
+            border-color: $border-circle !important;
+        }
+    }
+}
+
+@keyframes arrow {
+    0% {
+        opacity: 1;
+    }
+    10% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+:global(.ch2) {
+    :global(.ch2-dialog-actions) button {
+        height: auto !important;
+    }
+
+    :global(.ch2-settings-header) {
+        border-bottom: 1px solid theme-color('basic-600');
+    }
+
+    :global(.ch2-settings-actions) {
+        background-color: theme-color('basic-800') !important;
+        border-top: 1px solid theme-color('basic-600');
+    }
+
+    :global(.ch2-dialog),
+    :global(.ch2-settings) {
+        font-family: $font-family-sans-serif;
+        background-color: theme-color('basic-800') !important;
+        box-shadow: none;
+        overflow: hidden;
+
+        p {
+            color: theme-color('basic-100') !important;
+        }
+
+        :global(.ch2-settings-content) p {
+            @include font-styles('normal');
+        }
+
+        :global(.ch2-settings-tabs) ul li a {
+            color: theme-color('basic-100') !important;
+            @include font-styles('normal');
+        }
+
+        :global(#ch2-dialog-description) {
+            color: theme-color('basic-100') !important;
+            @include font-styles('link');
+        }
+
+        :global(#ch2-dialog-title),
+        :global(#ch2-dialog-title) strong {
+            @include font-styles('medium');
+            color: theme-color('basic-100') !important;
+            margin-bottom: 1rem;
+        }
+
+        @include media-breakpoint-up(lg) {
+            :global(#ch2-dialog-title),
+            :global(#ch2-dialog-title) strong {
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        :global(.ch2-learn-more) {
+            @include font-styles('link');
+            color: theme-color('basic-100') !important;
+            text-decoration: underline;
+            border: none !important;
+        }
+
+        :global(.ch2-btn),
+        :global(.ch2-deny-all-btn) {
+            font-family: $font-family-neue-machina;
+            @include font-styles('normal');
+            text-transform: capitalize !important;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: none;
+        }
+
+        :global(.ch2-switch) {
+            input  {
+                + label {
+                    border: 1px solid;
+
+                    &:before {
+                        box-shadow: none;
+                    }
+                }
+
+                &:disabled {
+                    &:checked {
+                        @include checkbox-cookiehub(
+                            transparent,
+                            theme-color('basic-600'),
+                            theme-color('basic-500'),
+                            transparent
+                        );
+                    }
+
+                    @include checkbox-cookiehub(
+                        transparent,
+                        theme-color('basic-600'),
+                        theme-color('basic-500'),
+                        transparent
+                    );
+                }
+
+                @include checkbox-cookiehub(
+                    transparent,
+                    theme-color('basic-600'),
+                    theme-color('basic-100'),
+                    transparent
+                );
+
+                &:checked {
+                    @include checkbox-cookiehub(
+                        transparent,
+                        theme-color('basic-300'),
+                        theme-color('basic-100'),
+                        transparent
+                    );
+                }
+            }
+        }
+
+        :global(.ch2-btn-primary),
+        :global(.ch2-btn-primary):global(.ch2-allow-all-btn) {
+            text-transform: uppercase !important;
+            border-radius: 100px;
+
+            @include button-colors(
+                $secondary-blue-500 !important,
+                $secondary-blue-500 !important,
+                $basic-000 !important,
+                $box-shadow !important,
+                $secondary-blue-600 !important,
+                $secondary-blue-600 !important,
+                $basic-000 !important,
+                $box-shadow !important,
+                $secondary-blue-700 !important,
+                $secondary-blue-700 !important,
+                $basic-000 !important,
+                $basic-000 !important,
+                $basic-700 !important,
+                $basic-600 !important
+            );
+
+            &:hover {
+                box-shadow: none;
+            }
+        }
+
+        :global(.ch2-btn-secondary) {
+            text-transform: uppercase !important;
+
+            @include button-colors(
+                transparent !important,
+                transparent !important,
+                theme-color('basic-000') !important,
+                none!important,
+                transparent !important,
+                transparent !important,
+                theme-color('basic-100') !important,
+                none!important,
+                transparent !important,
+                transparent !important,
+                theme-color('basic-200') !important,
+                transparent,
+                transparent !important,
+                transparent !important,
+                theme-color('basic-600') !important
+            );
+
+            &:after {
+                content: '>>';
+                padding-left: 0.25rem;
+            }
+
+            &:hover {
+                &:after {
+                    animation: arrow 1.5s linear infinite;
+                }
+            }
+        }
+
+        :global(.ch2-btn-transparent),
+        :global(.ch2-deny-all-btn) {
+            @include transition($btn-transition !important);
+            padding: $btn-padding-y $btn-padding-x;
+
+            border: none !important;
+
+            @include button-colors(
+                transparent !important,
+                none !important,
+                theme-color('basic-600') !important,
+                none !important,
+                none!important,
+                none!important,
+                theme-color('basic-400') !important,
+                none!important,
+                none!important,
+                none!important,
+                theme-color('basic-400') !important,
+                none!important,
+                none!important,
+                none!important,
+                theme-color('basic-400') !important
+            );
+        }
+    }
+}

@@ -1,0 +1,44 @@
+<svg width="800" height="303" viewBox="0 0 800 303" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="19" width="800" height="500">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0.842773 19.9232H799.999V513.019C799.999 515.77 797.763 518 795.004 518H5.83752C3.07901 518 0.842773 515.77 0.842773 513.019V19.9232Z" fill="white"/>
+</mask>
+<g mask="url(#mask0)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0.842773 19.9232H799.999V518H0.842773V19.9232Z" fill="#FCFCFD"/>
+</g>
+<path d="M1.47062 12.2242C1.47062 5.81929 6.66281 0.627119 13.0677 0.627119H787.776C794.181 0.627119 799.373 5.8193 799.373 12.2242V505.776C799.373 512.181 794.181 517.373 787.776 517.373H13.0677C6.66279 517.373 1.47062 512.181 1.47062 505.776V12.2242Z" stroke="#BDBDDB" stroke-width="1.25424"/>
+<path d="M1.47062 4.98077C1.47062 2.57797 3.42441 0.627119 5.83823 0.627119H795.005C797.419 0.627119 799.373 2.57797 799.373 4.98077V19.296H1.47062V4.98077Z" fill="#FCFCFD" stroke="#BDBDDB" stroke-width="1.25424"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M33.3079 13.6972C35.3768 13.6972 37.054 12.0248 37.054 9.96165C37.054 7.89855 35.3768 6.22607 33.3079 6.22607C31.2391 6.22607 29.5619 7.89855 29.5619 9.96165C29.5619 12.0248 31.2391 13.6972 33.3079 13.6972Z" fill="#BDBDDB"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M22.0716 13.6972C24.1405 13.6972 25.8177 12.0248 25.8177 9.96165C25.8177 7.89855 24.1405 6.22607 22.0716 6.22607C20.0027 6.22607 18.3256 7.89855 18.3256 9.96165C18.3256 12.0248 20.0027 13.6972 22.0716 13.6972Z" fill="#BDBDDB"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M10.8322 13.6972C12.9011 13.6972 14.5783 12.0248 14.5783 9.96165C14.5783 7.89855 12.9011 6.22607 10.8322 6.22607C8.76334 6.22607 7.08618 7.89855 7.08618 9.96165C7.08618 12.0248 8.76334 13.6972 10.8322 13.6972Z" fill="#BDBDDB"/>
+<path d="M160.468 20.5555L158.751 424.815" stroke="#BDBDDB" stroke-width="1.52802"/>
+<line x1="799.999" y1="55.5788" x2="158.752" y2="55.5788" stroke="#BDBDDB" stroke-width="1.52802"/>
+<line x1="799.999" y1="102.172" x2="158.752" y2="102.172" stroke="#BDBDDB" stroke-width="1.52802"/>
+<line x1="799.999" y1="148.764" x2="158.752" y2="148.764" stroke="#BDBDDB" stroke-width="1.52802"/>
+<line x1="799.999" y1="195.357" x2="158.752" y2="195.357" stroke="#BDBDDB" stroke-width="1.52802"/>
+<line x1="799.999" y1="241.949" x2="158.752" y2="241.949" stroke="#BDBDDB" stroke-width="1.52802"/>
+<line x1="799.999" y1="288.542" x2="158.752" y2="288.542" stroke="#BDBDDB" stroke-width="1.52802"/>
+<rect x="180.723" y="69.8888" width="111.223" height="17.8148" rx="8.90741" fill="#DEDEED"/>
+<rect x="180.723" y="115.111" width="111.223" height="17.8148" rx="8.90741" fill="#DEDEED"/>
+<rect x="180.723" y="163.074" width="111.223" height="17.8148" rx="8.90741" fill="#DEDEED"/>
+<rect x="180.723" y="209.667" width="111.223" height="17.8148" rx="8.9074" fill="#DEDEED"/>
+<rect x="180.724" y="256.608" width="111.223" height="17.8148" rx="8.90741" fill="#DEDEED"/>
+<rect x="180.723" y="302.852" width="111.223" height="17.8148" rx="8.90739" fill="#DEDEED"/>
+<rect x="324.9" y="69.8888" width="111.223" height="17.8148" rx="8.90741" fill="#DEDEED"/>
+<rect x="324.9" y="115.111" width="111.223" height="17.8148" rx="8.90741" fill="#DEDEED"/>
+<rect x="324.9" y="163.074" width="111.223" height="17.8148" rx="8.90741" fill="#DEDEED"/>
+<rect x="324.9" y="209.667" width="111.223" height="17.8148" rx="8.9074" fill="#DEDEED"/>
+<rect x="324.902" y="256.608" width="111.223" height="17.8148" rx="8.90741" fill="#DEDEED"/>
+<rect x="324.9" y="302.852" width="111.223" height="17.8148" rx="8.90739" fill="#DEDEED"/>
+<rect x="469.078" y="69.8888" width="111.223" height="17.8148" rx="8.90741" fill="#DEDEED"/>
+<rect x="613.266" y="69.8888" width="111.223" height="17.8148" rx="8.90741" fill="#DEDEED"/>
+<rect x="469.078" y="115.111" width="111.223" height="17.8148" rx="8.90741" fill="#DEDEED"/>
+<rect x="613.266" y="115.111" width="111.223" height="17.8148" rx="8.90741" fill="#DEDEED"/>
+<rect x="469.078" y="163.074" width="111.223" height="17.8148" rx="8.90741" fill="#DEDEED"/>
+<rect x="613.266" y="163.074" width="111.223" height="17.8148" rx="8.90741" fill="#DEDEED"/>
+<rect x="469.078" y="209.667" width="111.223" height="17.8148" rx="8.9074" fill="#DEDEED"/>
+<rect x="613.266" y="209.667" width="111.223" height="17.8148" rx="8.9074" fill="#DEDEED"/>
+<rect x="469.076" y="256.608" width="111.223" height="17.8148" rx="8.90741" fill="#DEDEED"/>
+<rect x="613.264" y="256.608" width="111.223" height="17.8148" rx="8.90741" fill="#DEDEED"/>
+<rect x="469.078" y="302.852" width="111.223" height="17.8148" rx="8.90739" fill="#DEDEED"/>
+<rect x="613.266" y="302.852" width="111.223" height="17.8148" rx="8.90739" fill="#DEDEED"/>
+</svg>

@@ -1,0 +1,1 @@
+export { default as default } from '@solublestudio/soluto-design-system/src/components/Gatsby/GatsbyImageComponent';

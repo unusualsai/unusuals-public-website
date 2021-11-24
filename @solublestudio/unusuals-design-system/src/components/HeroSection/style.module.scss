@@ -1,0 +1,94 @@
+@import '~base-imports';
+
+$heroCoverImage-height: 165px;
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.hero.heroCoverImage{
+    padding-bottom: $heroCoverImage-height;
+
+    @include media-breakpoint-up(lg) {
+        padding-bottom: 0;
+    }
+}
+
+.heroContent {
+    position: relative;
+    z-index: 2;
+}
+
+.coverImage{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: auto;
+    z-index: 0;
+    width: 95%;
+    height: $heroCoverImage-height;
+
+    @include media-breakpoint-up(lg) {
+        width: 45%;
+        height: auto;
+        max-width: 800px;
+    }
+
+    img{
+        display: block;
+        margin: 0 0 0 auto;
+
+        @include media-breakpoint-up(lg) {
+            height: auto;
+        }
+    }
+
+
+}
+
+.logos {
+    font-size: 0px;
+    margin-left: -8px;
+    margin-top: -8px;
+
+    .logo {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 8px;
+        max-height: 34px;
+        opacity: 0.5;
+    }
+}
+
+.heroImage {
+    position: absolute !important;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+
+    @include media-breakpoint-up(lg) {
+        width: 60%;
+    }
+}
+
+.wave {
+    position: absolute !important;
+    top: 50px;
+    left: 50%;
+    width: $wave-size;
+    height: $wave-size;
+    margin-left: $wave-size / -2;
+
+    @include media-breakpoint-up(lg) {
+        top: 50%;
+        width: $wave-size-lg;
+        height: $wave-size-lg;
+        margin-top: $wave-size-lg / -2;
+        margin-left: $wave-size-lg / -6;
+    }
+}

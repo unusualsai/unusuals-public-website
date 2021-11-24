@@ -1,0 +1,6 @@
+.npmrc
+node_modules
+.DS_Store
+storybook-static
+dist
+docs/*

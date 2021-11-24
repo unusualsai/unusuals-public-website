@@ -1,0 +1,23 @@
+{
+  "name": "unusuals-public-website",
+  "private": true,
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "sds:start": "yarn workspace @solublestudio/soluto-design-system storybook",
+    "uds:start": "yarn workspace @solublestudio/unusuals-design-system storybook",
+    "uds:build": "yarn workspace @solublestudio/unusuals-design-system build-storybook",
+    "web:develop": "yarn workspace unusuals-public-website develop",
+    "web:build": "yarn workspace unusuals-public-website build",
+    "web:start": "yarn workspace unusuals-public-website start",
+    "web:clean": "yarn workspace unusuals-public-website clean",
+    "web:serve": "yarn workspace unusuals-public-website serve"
+  },
+  "workspaces": [
+    "unusuals-public-website",
+    "@solublestudio/gatsby-theme-soluble-source",
+    "@solublestudio/unusuals-design-system",
+    "@solublestudio/soluto-design-system"
+  ]
+}

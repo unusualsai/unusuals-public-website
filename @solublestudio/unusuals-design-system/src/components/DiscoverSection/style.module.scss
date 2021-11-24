@@ -1,0 +1,149 @@
+@import '~base-imports';
+
+@keyframes discover-animation {
+    0% {
+        transform: rotate(0deg);
+        opacity: 1;
+        zoom: 1;
+    }
+
+    12% {
+        opacity: 0.7;
+        zoom: 0.6;
+    }
+
+    25% {
+        transform: rotate(90deg);
+        zoom: 0.9;
+    }
+
+    50% {
+        transform: rotate(0deg);
+        zoom: 1.3;
+    }
+
+    62% {
+        opacity: 0.7;
+        zoom: 1.2;
+    }
+
+    75% {
+        transform: rotate(-90deg);
+        zoom: 1.3;
+    }
+
+    100% {
+        transform: rotate(0deg);
+        opacity: 1;
+        zoom: 1;
+    }
+}
+
+.discoverSection{
+    background-color: $basic-light-bg;
+
+    .animation{
+        padding-top: 80px;
+        padding-bottom: 80px;
+        margin-top: 48px;
+        margin-bottom: 48px;
+        position: relative;
+
+        .gradient{
+            display: block;
+            position: absolute;
+            top: 0px;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+            //border: 1px solid red;
+
+            .gradientAux{
+                border: 1px solid transparent;
+                position: sticky;
+                top: calc(50% - 110px);
+                bottom: 25%;
+                height: 0px;
+            }
+
+            .gradientImg{
+                width: 220px;
+                height: 220px;
+                display: block;
+                position: relative;
+                top: 0px;
+                margin-top: -110px;
+                left: 50%;
+                margin-left: -110px;
+
+                animation: discover-animation;
+                animation-iteration-count: infinite;
+                animation-duration: 12s;
+            }
+        }
+
+        .lines{
+            &,
+            .line{
+                position: absolute;
+                top: 0px;
+                bottom: 0px;
+                left: 0px;
+                right: 0px;
+            }
+
+            .line{
+                overflow: hidden;
+
+                &:before{
+                    $border-width: 1px;
+        
+                    content: "";
+                    display: block;
+                    width: $border-width;
+                    height: 100%;
+                    position: absolute;
+                    top: 5px;
+                    bottom: 0px;
+                    left: 50%;
+                    margin-right: ceil($border-width / -2);
+                    background: $basic-400;
+                    background: linear-gradient(180deg, $basic-400 0%, $basic-400 calc(100% - 40px), transparent 100%);
+                    z-index: 0;
+                }
+        
+                &:after{
+                    $dot-width: 5px;
+        
+                    content: "";
+                    display: block;
+                    width: $dot-width;
+                    height: $dot-width;
+                    transform: rotate(45deg);
+                    position: absolute;
+                    top: 2px;
+                    left: 50%;
+                    margin-left: ceil($dot-width / -2);
+                    background: $basic-400;
+                }
+
+                &.lineWhite{
+                    height: 0px;
+                    &:before{
+                        background: $white;
+                        background: linear-gradient(180deg, $white 0%, $white calc(100% - 40px), transparent 100%);
+                    }
+                    &:after{
+                        background: $white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.discoverCardSection{
+    & + &{
+        margin-top: 80px;
+    }
+}

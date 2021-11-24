@@ -1,0 +1,43 @@
+@import "~base-imports";
+@import "~bootstrap/scss/tooltip"; 
+
+.tooltip {
+    top: 0;
+    left: 0;
+}
+
+.bs-tooltip-top, .bs-tooltip-bottom {
+    .arrow {
+        left: 50%;
+        margin-left: -$tooltip-arrow-width / 2;
+    }
+}
+
+.bs-tooltip-left, .bs-tooltip-right {
+    .arrow {
+        top: 50%;
+        margin-top: -$tooltip-arrow-width / 2;
+    }
+}
+
+@if($tooltip-shadow) {
+    .tooltip-inner {
+        box-shadow: $tooltip-shadow;
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .tooltip-inner {
+        @if ($tooltip-max-width-lg) {
+            max-width: $tooltip-max-width-lg;
+        }
+        @if ($tooltip-padding-y-lg) {
+            padding-top: $tooltip-padding-y-lg;
+            padding-bottom: $tooltip-padding-y-lg;
+        }
+        @if ($tooltip-padding-x-lg) {
+            padding-left: $tooltip-padding-x-lg;
+            padding-right: $tooltip-padding-x-lg;
+        }
+    }
+}

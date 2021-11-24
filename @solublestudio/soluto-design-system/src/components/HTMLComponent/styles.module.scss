@@ -1,0 +1,97 @@
+@import '~base-imports';
+@import '~bootstrap/scss/tables';
+
+.HTMLTextComponent {
+    > *:first-child {
+        margin-top: 0;
+    }
+
+    > *:last-child {
+        margin-bottom: 0;
+    }
+
+    @each $map, $values in $html-components-fonts {
+        #{$map} {
+            @include font-styles(#{$values});
+        }
+    }
+
+    @each $map, $values in $html-components-margins {
+        #{$map} {
+            @each $breakpoint, $sizes in $values {
+                $this-breakpoint: if($breakpoint == 'null', 'xs', $breakpoint);
+
+                @include media-breakpoint-up($this-breakpoint) {
+                    $margin-top: nth($sizes, 1);
+                    $margin-bottom: nth($sizes, 2);
+                    @if ($margin-top != null) {
+                        margin-top: $margin-top;
+                    }
+                    @if ($margin-bottom != null) {
+                        margin-bottom: $margin-bottom;
+                    }
+                }
+            }
+        }
+    }
+
+    a {
+        @if $html-link-color {
+            color: $html-link-color;
+        }
+        @if $html-link-text-decoration {
+            text-decoration: $html-link-text-decoration;
+        }
+        &:hover {
+            @if $html-hover-link-color {
+                color: $html-hover-link-color;
+            }
+            @if $html-hover-link-text-decoration {
+                text-decoration: $html-hover-link-text-decoration;
+            }
+        }
+    }
+
+    @if ($html-padding-list-points != null) {
+        ol,
+        ul {
+            padding-inline-start: $html-padding-list-points;
+        }
+    }
+
+    li:first-child {
+        margin-top: 0;
+    }
+
+    li:last-child {
+        margin-bottom: 0;
+    }
+
+    img,
+    iframe {
+        max-width: 100%;
+        height: auto;
+    }
+
+    @if ($html-table-style != null) {
+        table {
+            @extend .table;
+
+            @if ($html-table-style == 'striped') {
+                @extend .table-striped;
+            } @else if ($html-table-style == 'bordered') {
+                @extend .table-bordered;
+            } @else if ($html-table-style == 'borderless') {
+                @extend .table-borderless;
+            }
+
+            @if $html-table-dark {
+                @extend .table-dark;
+            }
+
+            @if $html-table-small {
+                @extend .table-sm;
+            }
+        }
+    }
+}

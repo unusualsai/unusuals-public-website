@@ -1,0 +1,30 @@
+@import "~base-imports";
+@import "~bootstrap/scss/transitions";
+
+
+.collapsing-horizontal {
+    position: relative;
+    width: 0;
+    overflow: hidden;
+    @include transition(width .35s ease);
+}
+
+@include media-breakpoint-up(lg) {
+    .collapse-only-mobile {
+        height: auto;
+
+        &:not(.show) {
+            display: block;
+        }
+    }
+} 
+
+@include media-breakpoint-down(md) {
+    .collapse-only-desktop {
+        height: auto;
+
+        &:not(.show) {
+            display: block;
+        }
+    }
+}

@@ -1,0 +1,49 @@
+@import '~base-imports';
+
+.formSection{
+    overflow: hidden;
+}
+
+.colLeft{
+    position: relative;
+    z-index: 2;
+}
+.colRight{
+    position: relative;
+    z-index: 1;
+}
+
+.backgroundWave{
+    position: absolute;
+    z-index: -2;
+    width: $wave-size;
+    height: $wave-size;
+    top: -120px;
+    left: 50%;
+    margin-left: $wave-size / -2;
+
+    @include media-breakpoint-up(lg) {
+        width: $wave-size-lg;
+        height: $wave-size-lg;
+        top: $wave-size-lg / -4;
+        margin-left: $wave-size-lg / -4;
+    }
+}
+
+.backgroundImage{
+    position: absolute;
+    z-index: -1;
+    top: 0px;
+    left: -500px;
+    right: -500px;
+
+    img{
+        max-width: none;
+        width: 100%;
+    }
+
+    @include media-breakpoint-up(md) {
+        left: -800px;
+        right: -300px;
+    }
+}

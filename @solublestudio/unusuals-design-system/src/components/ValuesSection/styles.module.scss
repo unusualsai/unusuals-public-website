@@ -1,0 +1,20 @@
+@import "~base-imports";
+
+.valuesSection{
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.lineTop{
+  border-top: 1px solid $basic-700;
+}
+
+.lineBottom{
+  border-bottom: 1px solid $basic-700;
+}
+
+.valuesItem{
+  & + &{
+    margin-top: 24px
+  }
+}

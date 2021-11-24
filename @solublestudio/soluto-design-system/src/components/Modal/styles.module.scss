@@ -1,0 +1,45 @@
+@import "~base-imports";
+@import "~bootstrap/scss/modal"; 
+
+.modal {
+    overflow-y: visible;
+
+    &.show {
+        overflow-x: hidden;
+        overflow-y: visible;
+    }
+
+    &.fade-opacity {
+        @include transition($transition-fade);
+    
+        &:not(.show) {
+            opacity: 0;
+        }
+    }
+
+    + .modal-backdrop {
+        z-index: $zindex-modal + 1;
+        + .modal {
+            z-index: $zindex-modal + 2;
+        }
+    }
+}
+
+.backdrop-fade-opacity {
+    @include transition($transition-fade);
+    opacity: $modal-backdrop-opacity;
+
+    &:not(.show) {
+        opacity: 0;
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    body[data-modal-open] {
+        overflow: hidden;
+    
+        &, :global(.modal-open-fix) {
+            padding-right: 15px;
+        }
+    }
+}

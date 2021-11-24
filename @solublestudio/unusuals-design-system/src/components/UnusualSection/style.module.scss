@@ -1,0 +1,56 @@
+@import '~base-imports';
+
+.section {
+    border-top: 1px solid theme-color('basic-600');
+    overflow: hidden;
+
+    &:last-child {
+        border-bottom: 1px solid theme-color('basic-600');
+    }
+
+    &.scheme--tight,
+    &.scheme--expanded {
+        padding: 0;
+    }
+}
+
+.scheme--tight {
+    > div > div > div {
+        position: relative;
+        padding: map-get($section-paddings, null) #{24px + $grid-gutter-width / 2};
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            border: 1px solid theme-color('basic-600');
+            border-bottom: none;
+            left: $grid-gutter-width / 2;
+            right: $grid-gutter-width / 2;
+        }
+
+        &:first-child {
+            &:before {
+                border-top: none;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .scheme--tight {
+        > div > div > div {
+            padding: 48px;
+
+            &:before {
+                border-top: none;
+                border-bottom: none;
+                left: $grid-gutter-width-lg / 2;
+                right: 0;
+            }
+
+            // VOY POR AQUI: Salir de este berenjenal
+        }
+    }
+}

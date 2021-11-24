@@ -1,0 +1,172 @@
+@import '~base-imports';
+
+body {
+    overflow-y: scroll;
+}
+
+.container,
+.container-fluid {
+    width: 100%;
+    padding-left: $navbar-padding-x;
+    padding-right: $navbar-padding-x;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.container {
+    @include make-container-max-widths($container-max-widths, $grid-breakpoints);
+}
+
+body[data-scrollbar] {
+    .container {
+        @include make-container-max-widths($container-max-widths-scrollbar, $grid-breakpoints);
+    }
+}
+
+.row {
+    @include make-row($grid-gutter-width);
+    position: relative;
+}
+
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+
+    > .col-gutter,
+    > [class*='col-'] {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+.col {
+    position: relative;
+    width: 100%;
+}
+
+.col-gutter {
+    padding-left: $grid-gutter-width / 2;
+    padding-right: $grid-gutter-width / 2;
+}
+
+@each $breakpoint, $size in $grid-breakpoints {
+    $infix: breakpoint-infix($breakpoint);
+
+    $cols: map-get($grid-cols, $breakpoint);
+    $orders: map-get($grid-orders, $breakpoint);
+    $offsets: map-get($grid-offsets, $breakpoint);
+
+    @include media-breakpoint-up($breakpoint) {
+        @if $cols {
+            @each $col in $cols {
+                .col#{$infix}-#{$col} {
+                    @include make-col($col, $grid-columns);
+                }
+            }
+        }
+
+        @if $orders {
+            @each $order in $orders {
+                .order#{$infix}-#{$order} {
+                    order: $order;
+                }
+            }
+        }
+
+        @if $offsets {
+            @each $offset in $offsets {
+                .offset#{$infix}-#{$offset} {
+                    @include make-col-offset($offset);
+                }
+            }
+        }
+    }
+}
+
+@include media-breakpoint-up(sm) {
+    .container,
+    .container-fluid {
+        padding-right: $grid-gutter-width / 2;
+        padding-left: $grid-gutter-width / 2;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    @if $grid-gutter-width-md != $grid-gutter-width {
+        .container,
+        .container-fluid {
+            padding-left: $grid-gutter-width-md / 2;
+            padding-right: $grid-gutter-width-md / 2;
+        }
+
+        .row {
+            margin-right: -$grid-gutter-width-md / 2;
+            margin-left: -$grid-gutter-width-md / 2;
+        }
+
+        .col-gutter {
+            padding-left: $grid-gutter-width-md / 2;
+            padding-right: $grid-gutter-width-md / 2;
+        }
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    @if $grid-gutter-width-lg != $grid-gutter-width {
+        .container,
+        .container-fluid {
+            padding-left: $grid-gutter-width-lg / 2;
+            padding-right: $grid-gutter-width-lg / 2;
+        }
+
+        .row {
+            margin-right: -$grid-gutter-width-lg / 2;
+            margin-left: -$grid-gutter-width-lg / 2;
+        }
+
+        .col-gutter {
+            padding-left: $grid-gutter-width-lg / 2;
+            padding-right: $grid-gutter-width-lg / 2;
+        }
+    }
+}
+
+@include media-breakpoint-up(xl) {
+    @if $grid-gutter-width-xl != $grid-gutter-width {
+        .container,
+        .container-fluid {
+            padding-left: $grid-gutter-width-xl / 2;
+            padding-right: $grid-gutter-width-xl / 2;
+        }
+
+        .row {
+            margin-right: -$grid-gutter-width-xl / 2;
+            margin-left: -$grid-gutter-width-xl / 2;
+        }
+
+        .col-gutter {
+            padding-left: $grid-gutter-width-xl / 2;
+            padding-right: $grid-gutter-width-xl / 2;
+        }
+    }
+}
+
+@include media-breakpoint-up(xxl) {
+    @if $grid-gutter-width-xxl != $grid-gutter-width {
+        .container,
+        .container-fluid {
+            padding-left: $grid-gutter-width-xxl / 2;
+            padding-right: $grid-gutter-width-xxl / 2;
+        }
+
+        .row {
+            margin-right: -$grid-gutter-width-xxl / 2;
+            margin-left: -$grid-gutter-width-xxl / 2;
+        }
+
+        .col-gutter {
+            padding-left: $grid-gutter-width-xxl / 2;
+            padding-right: $grid-gutter-width-xxl / 2;
+        }
+    }
+}

@@ -1,0 +1,141 @@
+version: 2.1
+
+orbs:
+    node: circleci/node@3.0.0
+    slack: circleci/slack@3.4.2
+    aws-s3: circleci/aws-s3@2.0.0
+
+jobs:
+    version-patch:
+        working_directory: ~/repo
+        executor:
+            name: node/default
+            tag: '14.16.0'
+        steps:
+            - checkout
+            - add_ssh_keys
+            - run:
+                  name: 'Configure git email'
+                  command: git config user.email "tech@solublestudio.com"
+            - run:
+                  name: 'Configure git username'
+                  command: git config user.name "solubletech"
+            - run:
+                  name: 'Configure npmjs'
+                  command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
+            - restore_cache:
+                  keys:
+                      - yarn-packages-nm-{{ checksum "yarn.lock" }}
+            - run:
+                  name: 'Install dependencies'
+                  command: yarn install --cache-folder ~/.cache/yarn
+            - run:
+                  name: 'Generate dist and publish'
+                  command: cd ~/repo && ./publish.sh patch
+            - save_cache:
+                  paths:
+                      - ~/.cache/yarn
+                      - node_modules
+                  key: yarn-packages-nm-{{ checksum "yarn.lock" }}
+            - aws-s3/sync:
+                  arguments: |
+                      --acl public-read \
+                      --cache-control "max-age=0"
+                  from: ~/repo/dist/docs
+                  to: 's3://soluto-ds/unusuals-design-system/${CIRCLE_BRANCH}/$(cat ~/repo/package.json| grep "version"| tr -d "\"version\":"| tr -d " "| tr -d ",")'
+            - aws-s3/sync:
+                  arguments: |
+                      --acl public-read \
+                      --cache-control "max-age=0"
+                  from: ~/repo/dist/docs
+                  to: 's3://soluto-ds/unusuals-design-system/current'
+            - run:
+                  name: 'Check status'
+                  command: cd ~/repo && git status
+            - run:
+                  name: 'Push to $CIRCLE_BRANCH'
+                  command: cd ~/repo && git push origin $CIRCLE_BRANCH
+            - run:
+                  name: 'Push tag'
+                  command: cd ~/repo && git push --tags
+            - slack/notify:
+                  color: '#32CD32'
+                  message: |
+                      :rocket:
+                      <https://github.com/solublestudio/unusuals-design-system|@solublestudio/unusuals-design-system> *$(cat ~/repo/package.json| grep "version"| tr -d "\"version\":"| tr -d " "| tr -d ",")* released.
+                      Check the docs <https://soluto-ds.s3-eu-west-1.amazonaws.com/unusuals-design-system/$CIRCLE_BRANCH/$(cat ~/repo/package.json| grep "version"| tr -d "\"version\":"| tr -d " "| tr -d ",")/index.html|here>.
+    upload-docs:
+        resource_class: small
+        working_directory: ~/repo
+        executor:
+            name: node/default
+            tag: '14.16.0'
+        steps:
+            - run:
+                  name: Check is PR
+                  command: |
+                      sudo apt-get install jq
+
+                      pr_response=$(curl --location --request GET "https://api.github.com/repos/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/pulls?head=$CIRCLE_PROJECT_USERNAME:$CIRCLE_BRANCH&state=open" \
+                      --header "Authorization: token $GITHUB_TOKEN")
+
+                      if [ $(echo $pr_response | jq length) -eq 0 ]; then
+                          echo "No PR found on this branch, exiting"
+                          curl -X POST "https://circleci.com/api/v2/workflow/$CIRCLE_WORKFLOW_ID/cancel?circle-token=$CIRCLE_API_TOKEN"
+                      fi
+            - checkout
+            - add_ssh_keys
+            - run:
+                  name: 'Configure npmjs'
+                  command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
+            - restore_cache:
+                  keys:
+                      - yarn-packages-nm-{{ checksum "yarn.lock" }}
+            - run:
+                  name: 'Install dependencies'
+                  command: yarn install --cache-folder ~/.cache/yarn
+            - run:
+                  name: 'Generate docs'
+                  command: yarn build-storybook -s ./src/fonts -o ~/repo/dist
+            - save_cache:
+                  paths:
+                      - ~/.cache/yarn
+                      - node_modules
+                  key: yarn-packages-nm-{{ checksum "yarn.lock" }}
+            - aws-s3/sync:
+                  arguments: |
+                      --acl public-read \
+                      --cache-control "max-age=0"
+                  from: ~/repo/dist
+                  to: 's3://soluto-ds/unusuals-design-system/${CIRCLE_BRANCH}/${CIRCLE_SHA1}'
+            - run:
+                  name: Post URL to Github PR
+                  command: |
+                      sudo apt-get install jq
+
+                      pr_response=$(curl --location --request GET "https://api.github.com/repos/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/pulls?head=$CIRCLE_PROJECT_USERNAME:$CIRCLE_BRANCH&state=open" \
+                      --header "Authorization: token $GITHUB_TOKEN")
+
+                      pr_comment_url=$(echo $pr_response | jq -r ".[]._links.comments.href")
+
+                      curl --location --request POST "$pr_comment_url" \
+                      --header "Authorization: token $GITHUB_TOKEN" \
+                      --header 'Content-Type: application/json' \
+                      --data-raw "{
+                          \"body\": \"[Storybook ➡️](https://soluto-ds.s3-eu-west-1.amazonaws.com/unusuals-design-system/$CIRCLE_BRANCH/$CIRCLE_SHA1/index.html)\"
+                      }"
+workflows:
+    npm-publish:
+        jobs:
+            - version-patch:
+                  filters:
+                      branches:
+                          only:
+                              - master
+    upload-docs:
+        jobs:
+            - upload-docs:
+                  filters:
+                      branches:
+                          ignore:
+                              - master

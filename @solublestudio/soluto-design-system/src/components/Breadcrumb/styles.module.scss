@@ -1,0 +1,17 @@
+@import '~base-imports';
+@import '~bootstrap/scss/breadcrumb';
+
+.breadcrumb-item {
+    + .breadcrumb-item {
+        @if $breadcrumb-divider-background {
+            position: relative;
+            &::before {
+                content: '';
+                background-image: $breadcrumb-divider-background;
+                position: absolute;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+        }
+    }
+}

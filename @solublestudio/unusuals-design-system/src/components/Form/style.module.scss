@@ -1,0 +1,385 @@
+@import '~base-imports';
+
+.label-input {
+    @include font-styles('caption');
+    text-transform: uppercase;
+    font-weight: normal;
+    font-family: $font-family-sans-serif;
+}
+
+.label-button {
+    @include font-styles('normal');
+    font-family: $font-family-sans-serif;
+}
+
+.label-heading {
+    @include font-styles('display2');
+    font-family: $font-family-sans-serif;
+}
+
+.arenguForm {
+    :global(.af-form) {
+        max-width: 100% !important;
+
+        --input-color: #{theme-color('basic-100')};
+        --label-color: #{theme-color('basic-300')};
+        --font-color: #{theme-color('basic-100')};
+        --input-background: #{theme-color('basic-900')};
+        --input-background-color: #{theme-color('basic-900')};
+        --input-hover-border-color: #{theme-color('basic-100')};
+        --input-font-color: #{theme-color('basic-100')};
+        --input-border-radius: 0 !important;
+        --label-font-color: #{theme-color('basic-300')};
+        --label-hover-background-color: none;
+        --invalid-field-border-color: #{theme-color('danger')};
+        --invalid-field-background-color: inherit;
+        --field-error-font-color: #{theme-color('danger')};
+        --message-fail-font-color: #{theme-color('danger')};
+        --message-fail-background-color: transparent;
+        --message-success-font-color: #{theme-color('success-500')};
+        --dropdown-option-active-background-color: #{theme-color('basic-900')};
+        --dropdown-option-font-color: #{theme-color('basic-300')};
+        --input-border-width: 1px;
+        --primary-color: #{theme-color('primary-700')};
+        --font-family: #{$font-family-sans-serif};
+        --dropdown-icon-color: #{theme-color('basic-100')};
+        --border-focus-color: #{theme-color('basic-100')};
+        --label-required-color: #{theme-color('danger')};
+        --label-font-weight: #{$font-weight-normal};
+        --button-font-weight: #{$font-weight-normal};
+        --primary-font-color: #{theme-color('basic-100')};
+        --input-border: 1px solid #{theme-color('basic-600')};
+        --placeholder-color: #{theme-color('basic-300')};
+        --placeholder-focus-color: #{theme-color('basic-300')};
+
+        --input-border-color: #{theme-color('basic-600')} !important;
+        --input-border-radius: 4px !important;
+        --button-border-radius: 32px !important;
+        --message-border-radius: 4px !important;
+        --checkbox-border-radius: 0px !important;
+    }
+
+    :global(.af-field-error) p {
+        @include font-styles('extraSmall');
+    }
+
+    :global(#file) {
+        margin-bottom: 1.5rem;
+
+        label {
+            &:hover {
+                border-color: var(--border-focus-color);
+            }
+            display: block;
+            cursor: pointer;
+            padding: 1.5rem 0px;
+            border: 1px solid theme-color('basic-600');
+            background-color: theme-color('basic-700');
+            text-align: center;
+            margin: 0;
+
+            span {
+                position: relative;
+                padding-left: 1.5rem;
+                @include font-styles('normal');
+                font-weight: $font-weight-bold;
+                margin: 0;
+
+                &:before {
+                    content: '';
+                    left: 0px;
+                    position: absolute;
+                    height: 1.25rem;
+                    width: 1.25rem;
+                    background-repeat: no-repeat;
+                    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18 0H6C4.9 0 4 0.9 4 2V14C4 15.1 4.9 16 6 16H18C19.1 16 20 15.1 20 14V2C20 0.9 19.1 0 18 0ZM18 14H6V2H18V14ZM2 4H0V18C0 19.1 0.9 20 2 20H16V18H2V4ZM14 10V7C14 6.45 13.55 6 13 6H11V11H13C13.55 11 14 10.55 14 10ZM12 7H13V10H12V7ZM16 9H17V8H16V7H17V6H15V11H16V9ZM8 9H9C9.55 9 10 8.55 10 8V7C10 6.45 9.55 6 9 6H7V11H8V9ZM8 7H9V8H8V7Z' fill='%23FAFAFA'/%3E%3C/svg%3E%0A");
+                }
+
+                &[data-filled='true'] {
+                    &:before {
+                        background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18 2V14H6V2H18ZM18 0H6C4.9 0 4 0.9 4 2V14C4 15.1 4.9 16 6 16H18C19.1 16 20 15.1 20 14V2C20 0.9 19.1 0 18 0ZM10.47 12L7 8.5L8.4 7.09L10.47 9.17L15.6 4L17 5.41L10.47 12ZM2 4H0V18C0 19.1 0.9 20 2 20H16V18H2V4Z' fill='%23FAFAFA'/%3E%3C/svg%3E%0A");
+                    }
+                }
+            }
+        }
+
+        input[type='file'] {
+            visibility: hidden;
+            display: none;
+        }
+    }
+
+    :global(.af-field-input) input[type='text'],
+    :global(.af-field-input) input[type='email'],
+    :global(.af-field-input) input[type='tel'],
+    :global(.af-field-input) input[type='number'],
+    :global(.af-field-input) input[type='date'],
+    :global(.af-field-input) input[type='tel'],
+    :global(.af-field-input) textarea,
+    :global(.af-dropdown) {
+        height: $input-height !important;
+        padding-top: $input-padding-y;
+        padding-bottom: $input-padding-y;
+        padding-left: $input-padding-x;
+        padding-right: $input-padding-x;
+        @include font-size($input-font-size);
+        font-weight: $input-font-weight;
+        line-height: $input-line-height;
+        border: $input-border-width solid;
+        border-color: var(--input-border-color);
+        @include transition($input-transition);
+        @include form-control-focus($ignore-warning: true);
+
+        background-color: rgba( theme-color('basic-900'), .6 );
+
+        &:focus,
+        &:hover {
+            border-color: var(--input-hover-border-color) !important;
+            background-color: rgba( theme-color('basic-900'), .8 );
+        }
+    }
+
+    // @include media-breakpoint-up(sm) {
+    //     :global([data-tooltip]) {
+    //         &::after {
+    //             top: calc(100% + 4px);
+    //             left: 25%;
+    //             transform: translateX(-25%);
+    //         }
+    //     }
+    // }
+
+    // @include media-breakpoint-up(lg) {
+    //     :global([data-tooltip]) {
+    //         &::before,
+    //         &::after {
+    //             position: absolute !important;
+    //             bottom: calc(100% + 4px) !important;
+    //             left: 50% !important;
+    //             transform: translate(-50%) !important;
+    //             max-width: 380px !important;
+    //             top: auto !important;
+    //         }
+    //     }
+    // }
+
+    :global(.af-field-input) textarea {
+        min-height: 100px;
+    }
+
+    :global(.af-dropdown-search) {
+        padding: 0px !important;
+    }
+
+    :global(.af-dropdown-text) {
+        padding-top: $input-padding-y;
+        padding-bottom: $input-padding-y;
+        padding-left: $input-padding-x;
+        padding-right: $input-padding-x;
+    }
+
+    :global(.af-step-next),
+    :global(.af-step-previous) {
+        button {
+            @include button-size(
+                $btn-padding-y-sm,
+                $btn-padding-x-sm,
+                $btn-font-size,
+                $btn-line-height,
+                $btn-border-radius
+            );
+            @include button-colors(
+                theme-color('secondary-500'),
+                theme-color('secondary-500'),
+                theme-color('basic-100'),
+                #a9a9a9,
+                theme-color('secondary-500'),
+                theme-color('secondary-500'),
+                theme-color('basic-100'),
+                #a9a9a9,
+                theme-color('secondary-600'),
+                theme-color('secondary-600'),
+                theme-color('basic-100'),
+                #a9a9a9,
+                theme-color('basic-700'),
+                theme-color('basic-700'),
+                theme-color('basic-600')
+            );
+
+            @include font-styles('button');
+            border-radius: var(--button-border-radius);
+            text-transform: uppercase;
+        }
+    }
+
+    :global(.af-choice-option) {
+        & input:checked + label:before,
+        & label {
+            span {
+                @include font-styles('caption');
+            }
+            &::after {
+                margin-left: 11px;
+                width: 6px;
+                height: 10px;
+            }
+
+            &::before {
+                border: 1px solid $primary-900;
+                border-radius: 4px;
+            }
+
+            &:hover {
+                background-color: unset;
+                &::before {
+                    border-color: $primary-500;
+                }
+            }
+        }
+    }
+
+    :global(.af-legal) {
+        input:checked {
+            label {
+                &:before {
+                    background-color: theme-color('primary-700');
+                }
+            }
+        }
+        label {
+            @include font-styles('small');
+            &:hover {
+                &:before {
+                    border-color: theme-color('primary-700');
+                }
+            }
+            &:before {
+                background-color: transparent;
+                border-radius: 0px;
+                height: 24px;
+                width: 24px;
+            }
+            &:after {
+                width: 5px;
+                height: 12px;
+                margin-left: 8px;
+                border-color: theme-color('basic-900');
+            }
+        }
+    }
+
+    :global(.af-dropdown-icon) > svg {
+        margin-top: 1em !important;
+    }
+
+    :global(.af-field-label) label {
+        @extend .label-input;
+    }
+
+    :global(.af-choice-multiple) {
+        display: grid;
+        grid-template-columns: 1fr;
+
+        @include media-breakpoint-up(lg) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    :global(.af-step-button):global(.af-button):not(:global(.af-step-next)):not(:global(.af-step-previous)) {
+        width: 100%;
+        button {
+            border-radius: 4px;
+            padding: 40px;
+            > span {
+                @extend .label-button;
+                font-weight: 300;
+                line-height: 28px;
+            }
+        }
+
+        @include media-breakpoint-up(lg) {
+            margin-right: 24px;
+            width: auto;
+        }
+    }
+
+    :global(.af-step) {
+        width: 100%;
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+
+        > div:not(:global(.af-step-next)):not(:global(.af-step-button)) {
+            width: 100%;
+        }
+
+        :global(.af-field)[class*='af-field-selector-prefix']
+            + :global(.af-field)[class*='af-field-phonenumber'] {
+            margin-left: 8px;
+            flex: 0.75;
+            label {
+                visibility: hidden;
+            }
+        }
+
+        :global(.af-field)[class*='af-field-work-email']
+            + :global(.af-field)[class*='af-field-selector-prefix'] {
+            flex: 0.35;
+        }
+
+        :global(.af-rich-text-block) p {
+            padding-top: 40px;
+            font-weight: 400;
+        }
+        :global(.af-step-message) {
+            margin: 0px;
+        }
+
+        :global(.af-step-failure) {
+            border-radius: 4px;
+            display: flex;
+            padding-top: 18px;
+            padding-bottom: 18px;
+            margin-left: auto;
+            margin-right: auto;
+
+            > p {
+                position: relative;
+
+                &::before {
+                    content: '';
+                    height: 24px;
+                    background-size: 100% auto;
+                    width: 24px;
+                    position: absolute;
+                    top: -5px;
+                    left: 0px;
+                    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M22.4414 15.9532L15.4361 3.97762C14.7328 2.7584 13.422 2.00166 12.0043 2C10.5866 1.99834 9.27528 2.75196 8.56324 3.97767L1.5553 15.9576C0.828629 17.1795 0.81219 18.7105 1.51605 19.9592C2.2205 21.2089 3.53954 21.9866 4.97427 21.9983L19.0121 21.9983C20.4618 21.9842 21.7783 21.2089 22.4827 19.9603C23.1862 18.7132 23.1704 17.1856 22.4414 15.9532ZM3.27796 16.9737L10.2911 4.98491C10.6462 4.37354 11.2976 3.99918 12.002 4C12.7063 4.00083 13.3574 4.37673 13.7067 4.98222L20.7176 16.9672C21.0851 17.5885 21.0929 18.3533 20.7407 18.9777C20.388 19.603 19.7286 19.9913 19.0024 19.9984L4.98241 19.9983C4.2718 19.9925 3.6111 19.6029 3.25831 18.9771C2.90591 18.3519 2.91414 17.5855 3.27796 16.9737ZM12.0002 17.9983C12.5527 17.9983 13.0005 17.5506 13.0005 16.9983C13.0005 16.4461 12.5527 15.9983 12.0002 15.9983C11.4477 15.9983 10.9999 16.4461 10.9999 16.9983C10.9999 17.5506 11.4477 17.9983 12.0002 17.9983ZM13.0035 7.99835H11.0028V14.9983H13.0035V7.99835Z' fill='%23FF5B42'/%3E%3C/svg%3E%0A");
+                }
+
+                display: block;
+                padding-left: 30px;
+
+                color: $danger;
+            }
+        }
+
+    }
+
+    :global(.af-step-success) {
+        border-radius: var(--message-border-radius);
+        background-color: var(--input-background-color);
+        padding: 16px;
+
+        p{
+            color: $white !important;
+        }
+    }
+
+    :global(.af-dropdown-search-options div:hover:not(.af-dropdown-message)),
+    :global(.af-dropdown-search-options .af-hover) {
+        color: var(--primary-color);
+        background-color: var(--input-background-color);
+    }
+
+}

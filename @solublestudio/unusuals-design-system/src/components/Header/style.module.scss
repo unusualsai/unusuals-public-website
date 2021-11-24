@@ -1,0 +1,50 @@
+@import '~base-imports';
+
+html {
+    scroll-behavior: smooth;
+}
+
+.navbar > a {
+    transform: translateX(-25px);
+}
+
+.navbar.withBorder {
+    border-bottom: 1px solid $basic-700;
+}
+
+.navbarLeft {
+    .linkItem {
+        border-top: 1px solid $basic-600;
+
+        @include media-breakpoint-up(lg) {
+            border-top: 0px;
+        }
+    }
+}
+
+.navbarRight {
+    border-top: 1px solid $basic-600;
+    border-bottom: 1px solid $basic-600;
+    padding-right: $navbar-padding-x;
+    padding-left: $navbar-padding-x;
+
+    li {
+        text-align: left;
+    }
+
+    @include media-breakpoint-up(lg) {
+        padding-top: $navbar-nav-link-padding-x;
+        padding-left: 0px;
+        padding-right: 0px;
+        border-top: 0px;
+        border-bottom: 0px;
+
+        li {
+            text-align: center;
+        }
+
+        .linkItem a {
+            font-size: $navbar-nav-font-size-lg;
+        }
+    }
+}

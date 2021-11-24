@@ -1,0 +1,15 @@
+@import "~base-imports";
+
+.wrapper {
+    @include list-unstyled;
+    margin-bottom: 0;
+}
+
+.link {
+    display: block;
+    
+    path {
+        transition: fill 0.15s ease-in-out;
+        fill: $primary;
+    }
+}

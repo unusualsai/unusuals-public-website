@@ -1,0 +1,7 @@
+@import '~base-imports';
+
+@include media-breakpoint-up(xxl) {
+    .titleTextSection {
+        padding-bottom: 80px;
+    }
+}

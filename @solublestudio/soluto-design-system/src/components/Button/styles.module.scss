@@ -1,0 +1,66 @@
+@import '~base-imports';
+@import 'variables';
+
+.btn {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    background-color: transparent;
+    border: 0px solid transparent;
+    @include transition($button-transition);
+
+    @include hover() {
+        text-decoration: none;
+    }
+
+    &:focus,
+    &.focus {
+        outline: 0;
+    }
+
+    &.disabled,
+    &:disabled {
+        @include box-shadow(none);
+    }
+
+    &:not(:disabled):not(.disabled) {
+        cursor: pointer;
+    }
+
+    @if $button-svg-transition {
+        svg {
+            transition: $button-svg-transition;
+        }
+    }
+}
+
+// Future-proof disabling of clicks on `<a>` elements
+a.btn.disabled,
+fieldset:disabled a.btn {
+    pointer-events: none;
+}
+
+//
+// Block button
+//
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+// Specificity overrides
+input[type='submit'],
+input[type='reset'],
+input[type='button'] {
+    &.btn-block {
+        width: 100%;
+    }
+}
+
+@each $type, $values in $button-custom {
+    .btn-#{$type} {
+        @include btn-type($type);
+    }
+}

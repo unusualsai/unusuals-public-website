@@ -1,0 +1,26 @@
+@import '~base-imports';
+
+.image {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.author {
+    display: flex;
+    align-items: center;
+}
+
+.authorImage {
+    height: 56px;
+    width: 56px;
+    border-radius: 100%;
+    margin-right: 16px;
+}
+
+@include media-breakpoint-up(xxl) {
+    .authorImage {
+        height: 64px;
+        width: 64px;
+    }
+}

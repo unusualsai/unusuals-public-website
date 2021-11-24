@@ -1,0 +1,24 @@
+@import '~base-imports';
+@import '~bootstrap/scss/card';
+
+@if $card-box-shadow != null {
+    .card {
+        box-shadow: $card-box-shadow;
+    }
+}
+
+@if $card-spacer-y-lg != null and $card-spacer-y-lg != null {
+    @include media-breakpoint-up(lg) {
+        .card-body {
+            padding: $card-spacer-y-lg $card-spacer-x-lg;
+        }
+    }
+}
+
+@if $card-spacer-y-xxl != null and $card-spacer-y-xxl != null {
+    @include media-breakpoint-up(xxl) {
+        .card-body {
+            padding: $card-spacer-y-xxl $card-spacer-x-xxl;
+        }
+    }
+}
