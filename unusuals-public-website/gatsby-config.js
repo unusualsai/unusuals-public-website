@@ -78,7 +78,7 @@ module.exports = {
     {
       resolve: `@solublestudio/gatsby-plugin-cookiehub`,
       options: {
-        cookiehubID: "46fdba02",
+        cookiehubID: "e45a4bf3",
         isDev: process.env.COOKIEHUB_DEV === "true",
         head: false,
       },
@@ -87,10 +87,9 @@ module.exports = {
       resolve: "gatsby-plugin-google-tagmanager",
       options: {
         // Config -> https://www.gatsbyjs.com/plugins/gatsby-plugin-google-tagmanager/
-        id: "GTM-N4798R",
-        includeInDevelopment: false,
-        defaultDataLayer: {},
-        routeChangeEventName: "routechange",
+        id: "GTM-PBB3STH",
+        defaultDataLayer: { platform: "gatsby" },
+        routeChangeEventName: "gatsby-always-route-change",
       },
     },
     "gatsby-plugin-netlify",
