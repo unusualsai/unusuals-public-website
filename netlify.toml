@@ -1,2 +1,6 @@
+[build]
+command = "yarn web:build"
+publish = "unusuals-public-website/public/"
+
 [[plugins]]
 package = "@netlify/plugin-gatsby"
