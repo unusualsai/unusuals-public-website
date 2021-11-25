@@ -172,7 +172,8 @@
             }
         }
 
-        :global(.ch2-btn-secondary) {
+        :global(.ch2-btn-secondary),
+        :global(.ch2-btn-text) {
             text-transform: uppercase !important;
 
             @include button-colors(
