@@ -93,5 +93,6 @@ module.exports = {
         routeChangeEventName: "routechange",
       },
     },
+    "gatsby-plugin-netlify",
   ],
 }
