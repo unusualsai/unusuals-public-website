@@ -10,7 +10,7 @@ import youtube from '../img/social-youtube.svg';
 const defaultFooter = {
     title: 'Detecting the unusual to become exceptional',
     logo: 'https://via.placeholder.com/80x140',
-    copyright: '© Copyright 2021. Unusuals',
+    copyright: '© Copyright 2023. unusuals world s.l.',
     footerLinks: [
         [
             {
