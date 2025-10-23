@@ -21,6 +21,10 @@
     "@solublestudio/soluto-design-system"
   ],
   "resolutions": {
-    "cheerio": "1.0.0-rc.12"
+    "cheerio": "1.0.0-rc.12",
+    "glob": "7.2.3",
+    "minimatch": "3.1.2",
+    "rimraf": "3.0.2",
+    "uuid": "3.4.0"
   }
 }
