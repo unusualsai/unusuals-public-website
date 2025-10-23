@@ -6,7 +6,7 @@
   "author": "Soluble Studio <tech@solublestudio.com>",
   "homepage": "https://solublestudio.com/",
   "dependencies": {
-    "@solublestudio/gatsby-plugin-cookiehub": "^1.0.0",
+    "gatsby-plugin-cookiehub": "^1.0.0",
     "@solublestudio/gatsby-theme-soluble-source": "1.4.7",
     "@solublestudio/unusuals-design-system": "0.0.33",
     "dotenv": "^8.2.0",

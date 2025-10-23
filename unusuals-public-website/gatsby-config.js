@@ -76,11 +76,11 @@ module.exports = {
     },
     "gatsby-plugin-sitemap",
     {
-      resolve: `@solublestudio/gatsby-plugin-cookiehub`,
+      resolve: `gatsby-plugin-cookiehub`,
       options: {
-        cookiehubID: "e45a4bf3",
-        isDev: process.env.COOKIEHUB_DEV === "true",
+        cookihubId: "e45a4bf3",
         head: false,
+        anonymize: true,
       },
     },
     {
