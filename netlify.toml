@@ -2,5 +2,14 @@
 command = "yarn web:build"
 publish = "unusuals-public-website/public/"
 
+[build.environment]
+SHARP_IGNORE_GLOBAL_LIBVIPS = "1"
+SHARP_FORCE_GLOBAL_LIBVIPS = "false"
+NPM_FLAGS = "--prefer-offline --no-audit"
+SHARP_FORCE_PLATFORM = "linux"
+SHARP_FORCE_ARCH = "x64"
+PREBUILD_INSTALL_RUNTIME = "node"
+PREBUILD_INSTALL_TARGET = "14.21.3"
+
 [[plugins]]
 package = "@netlify/plugin-gatsby"
