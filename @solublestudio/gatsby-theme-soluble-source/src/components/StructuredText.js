@@ -1,1 +1,2 @@
-export { StructuredText as default } from 'react-datocms';
+import { StructuredText } from 'react-datocms';
+export default StructuredText;
